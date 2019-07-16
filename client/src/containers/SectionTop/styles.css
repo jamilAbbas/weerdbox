@@ -1,0 +1,140 @@
+.heading {
+  font-size: 50px;
+  color: yellow;
+  margin: 50px;
+}
+
+.wrapper {
+  height: 538px;
+  width: 100%;
+  /* background: #001529; */
+  background-image: url("../../data/images/home.jpg");
+  background-size: cover;
+}
+.weerdboxbannerimage {
+  width: 39%;
+  height: auto;
+}
+.leftDescription {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding-top: 10px;
+  margin-top: 57px;
+  text-align: left;
+  text-shadow: 2px 2px #000000;
+}
+.subtitle {
+  color: #ebf0f3;
+  font-size: 2rem;
+  font-weight: 900;
+  text-shadow: 2px 2px #000000;
+}
+.serviceDescription {
+  color: white;
+  text-shadow: 2px 2px #000000;
+  font-weight: lighter;
+  font-size: large;
+}
+.submitArtButton {
+  margin: 2rem;
+}
+.searchbar {
+  margin-top: 2rem;
+}
+.arrowDown {
+  margin-top: 4.5rem;
+}
+
+.downArrow {
+  background-color: #f2f5f7;
+  width: 3rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 4.5rem;
+}
+.bounce {
+  -moz-animation: bounce 3s infinite;
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 3s infinite;
+}
+@-moz-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+/* Demo Purpose Only*/
+.demo {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 0;
+  text-align: center;
+}
+.demo a {
+  font-family: "Raleway", sans-serif;
+  color: #2ecc71;
+}
+
+.uploadImageForm {
+  text-align: center;
+}
+.uploadForm {
+  margin: 2rem;
+}

@@ -1,0 +1,21 @@
+.colAbout{
+    margin-top: 7%;
+    background-color:rgb(0, 21, 41);
+    padding: 2rem;
+    float: none;
+}
+.colAbout p{
+    color:white;
+    float: none;
+}
+.colAbout h2{
+    color:white;
+    border-bottom: 1px solid white;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+.colAbout img{
+    height: 200px;
+    width: auto;
+    display: inline-block;
+}

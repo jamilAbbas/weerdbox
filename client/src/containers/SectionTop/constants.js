@@ -1,0 +1,1 @@
+export const SUBMIT_ART_REQUEST = 'src/SectionTop/SUBMIT_ART_REQUEST';
