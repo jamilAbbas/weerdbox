@@ -3,3 +3,8 @@
     background: grey;
     border-radius: 10px;
 }
+regDiv{
+    background: url('../../data/images/keyboard.jpg');
+    height: 91vh;
+    object-fit: cover;
+}

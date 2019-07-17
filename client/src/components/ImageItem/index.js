@@ -64,14 +64,6 @@ class ImageItem extends React.Component {
             <Button key="back" onClick={this.handleCancel}>
               Return
             </Button>,
-            // <Button
-            //   key="submit"
-            //   type="primary"
-            //   loading={loading}
-            //   onClick={this.handleOk}
-            // >
-            //   Submit
-            // </Button>
           ]}
         >
           <img src={image} alt="some image" width=" 500px" height="500px" />

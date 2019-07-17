@@ -5,10 +5,12 @@ import { SUBMIT_ART_REQUEST } from "./containers/SectionTop/constants";
 import { SIGNUP_REQUEST } from "./containers/Register/constants";
 import { LOGIN_REQUEST } from "./containers/Login/constants";
 import { GET_ALL_ARTS } from "./containers/app/constants";
+import { GET_MY_ARTS } from "./containers/Dashboard/constants";
 import { getAuthToken } from "./utils/getAuthToken";
 import { setCurrentUser, loginFailed } from "./containers/Login/actions";
 import { signUpSuccess } from "./containers/Register/actions";
 import { getArtsSuccess } from "./containers/app/actions";
+import { getMyArtsSuccess } from "./containers/Dashboard/actions";
 import jwt_decode from "jwt-decode";
 function* fetchArts(action) {
   const token = getAuthToken();
@@ -104,11 +106,36 @@ function* getAllArtsWorker(action) {
       referrer: "no-referrer"
     }).then(res => res.json());
 
-    console.log("--------fetch all arts----");
-    console.log(response);
     yield put(getArtsSuccess(response));
   } catch (error) {
     // yield put(fetchListError(error));
+  }
+}
+
+function* getMyArtsWatcher(action) {
+  const { id, email } = action.payload;
+  const token = getAuthToken();
+
+  const data = {
+    email: email
+  };
+  try {
+    const response = yield fetch("arts/myarts", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    yield put(getMyArtsSuccess(response));
+  } catch (error) {
+    console.log("catch dashboard error");
   }
 }
 
@@ -117,6 +144,7 @@ function* submitArtWatcher(values) {
   yield takeLatest(SIGNUP_REQUEST, signupRequestHandler);
   yield takeLatest(LOGIN_REQUEST, loginRequestWatcher);
   yield takeLatest(GET_ALL_ARTS, getAllArtsWorker);
+  yield takeLatest(GET_MY_ARTS, getMyArtsWatcher);
 }
 
 export default function* rootSaga() {

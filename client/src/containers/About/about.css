@@ -1,21 +1,31 @@
-.colAbout{
-    margin-top: 7%;
-    background-color:rgb(0, 21, 41);
-    padding: 2rem;
-    float: none;
+.colAbout {
+  margin-top: 6%;
+  background-color: white;
+  padding: 2rem;
+  float: none;
+  border-radius: 10px;
 }
-.colAbout p{
-    color:white;
-    float: none;
+.colAbout p {
+  color: black;
+  float: none;
 }
-.colAbout h2{
-    color:white;
-    border-bottom: 1px solid white;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+.colAbout h2 {
+  color: black;
+  border-bottom: 1px solid white;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
-.colAbout img{
-    height: 200px;
-    width: auto;
-    display: inline-block;
+.colAbout img {
+  height: 200px;
+}
+.containerDiv {
+  background-image: url("../../data/images/keyboard.jpg");
+  object-fit: cover;
+  height: 91vh;
+  border-radius: 10px;
+}
+.divLogo {
+  background: black;
+  opacity: 0.9;
+  border-radius: 10px;
 }

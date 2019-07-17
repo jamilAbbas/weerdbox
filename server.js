@@ -36,5 +36,5 @@ app.use("/api/profile", profile);
 app.use("/api/arts", arts);
 
 app.get("/", (req, res) => res.send("Hello World!"));
-const port = process.env.port || 5000;
+const port = process.env.port || 8000;
 app.listen(port, () => console.log(`app listenting at port ${port} `));

@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout, Menu, Button } from "antd";
 import { Link } from "react-router-dom";
-import Logo from "../../data/images/logo.png";
+import Logo from "../../data/images/Copy.png";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../Login/actions";
 const { Header } = Layout;

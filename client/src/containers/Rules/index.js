@@ -7,7 +7,7 @@ import "./styles.css";
 class Rules extends React.Component{
     render(){
         return(
-            
+            <div className="divRule">
             <Row style={{textAlign:"center"}}>
                 <Col className="colCLs" span={13} offset={5} style={{ textAlign: "center"}}>
                 <h1>Rules</h1>
@@ -16,7 +16,7 @@ class Rules extends React.Component{
                 <p>- Although it is not required please give credit to your artists in your creations when you can.</p>
                 </Col>
             </Row>
-          
+            </div>
         );
     }
 }

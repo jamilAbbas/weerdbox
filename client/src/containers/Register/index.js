@@ -83,6 +83,7 @@ class RegistrationForm extends React.Component {
       }
     };
     return (
+      <div className="regDiv">
       <Row>
         <Col span={13} offset={4} style={{ textAlign: "center" }}>
           <h1 style={{ marginTop: "1rem", marginLeft: "7rem" }}>Register</h1>
@@ -167,6 +168,7 @@ class RegistrationForm extends React.Component {
             )}
         </Col>
       </Row>
+      </div>
     );
   }
 }

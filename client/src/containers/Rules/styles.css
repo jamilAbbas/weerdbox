@@ -1,13 +1,19 @@
 .colCLs{
  
     margin-top: 17%;
-   background-color:rgb(0, 21, 41);
+   background-color:white;
+   border-radius: 10px;
    padding: 2rem;
   }
 .colCLs  p{
-    color:white;
+    color:black;
  float: none;
 }
 .colCLs h1{
-    color:white;
+    color:black;
+}
+.divRule{
+    background: url('../../data/images/keyboard.jpg');
+    object-fit: cover;
+    height: 91vh;
 }
