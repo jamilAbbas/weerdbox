@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Icon, Avatar, Row, Col, Modal, Button } from "antd";
-import shareIcon from "../../data/images/share.png";
+import LikeandShare from "../LikeandShare";
 // import "./styles.css";
 
 class ImageItem extends React.Component {
@@ -26,9 +26,9 @@ class ImageItem extends React.Component {
   };
 
   render() {
-    const { name, email, likes, image, shares } = this.props;
+    const { name, email, likes, image, shares ,imageId} = this.props;
     const { visible, loading } = this.state;
-
+    console.log('imageItemid', imageId)
     return (
       <Col span={8}>
         <Card
@@ -43,16 +43,7 @@ class ImageItem extends React.Component {
             />
           }
         >
-          <Icon type="heart" style={{ fontSize: "16px", color: "#08c" }} />{" "}
-          Likes : {likes}
-          <span style={{ float: "right" }}>
-            <img
-              src={shareIcon}
-              alt="share icon"
-              style={{ marginRight: "4px", marginBottom: "2px" }}
-            />
-            shares: {shares}
-          </span>
+        <LikeandShare likes={likes} imageId={imageId} shares={shares}/>
         </Card>
         <Modal
           visible={visible}
@@ -63,7 +54,7 @@ class ImageItem extends React.Component {
           footer={[
             <Button key="back" onClick={this.handleCancel}>
               Return
-            </Button>,
+            </Button>
           ]}
         >
           <img src={image} alt="some image" width=" 500px" height="500px" />

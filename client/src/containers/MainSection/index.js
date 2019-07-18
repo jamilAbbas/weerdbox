@@ -19,6 +19,7 @@ class MainSection extends React.Component {
               likes={ar.likes}
               image={ar.art}
               shares={ar.shares}
+              imageId={ar._id}
             />
           ))}
       </div>

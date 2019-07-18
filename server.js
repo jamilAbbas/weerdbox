@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const arts = require("./routes/api/arts");
+const likes = require("./routes/api/likes");
 const passport = require("passport");
 
 const app = express();
@@ -34,6 +35,8 @@ app.use("/api/users", users);
 app.use("/api/profile", profile);
 //Arts Routes
 app.use("/api/arts", arts);
+//Likes Route
+app.use("/api/likes", likes);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 const port = process.env.port || 8000;

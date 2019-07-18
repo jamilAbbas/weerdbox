@@ -71,4 +71,18 @@ router.post("/myarts", (req, res) => {
     res.json(arts);
   });
 });
+
+// @route Post/api/arts/myarts
+// @desc Get all arts of a user
+// @access private
+
+router.post("/myarts", (req, res) => {
+  console.log("---myarts api", req.body);
+  const arts = Art.find({ email: req.body.email }).then(arts => {
+    if (!arts) {
+      return res.status(404).send({ notfound: "No Arts found for this user" });
+    }
+    res.json(arts);
+  });
+});
 module.exports = router;

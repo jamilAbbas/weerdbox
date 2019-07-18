@@ -12,6 +12,7 @@ import { signUpSuccess } from "./containers/Register/actions";
 import { getArtsSuccess } from "./containers/app/actions";
 import { getMyArtsSuccess } from "./containers/Dashboard/actions";
 import jwt_decode from "jwt-decode";
+import { IMAGE_LIKE_REQUEST } from "./components/LikeandShare/constants";
 function* fetchArts(action) {
   const token = getAuthToken();
   const data = {
@@ -139,12 +140,41 @@ function* getMyArtsWatcher(action) {
   }
 }
 
+function* imageLikeRequestWatcher(action) {
+  console.log("imagelikerequestwatcher", action.payload.imageId);
+  const data = {
+    imageId: action.payload.imageId,
+    userId: action.payload.userId
+  };
+  try {
+    const response = yield fetch("likes/like", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    console.log("-------------resp like actio -------");
+    console.log(response);
+    // yield put(getMyArtsSuccess(response));
+  } catch (error) {
+    console.log("catch dashboard error");
+  }
+}
+
 function* submitArtWatcher(values) {
   yield takeLatest(SUBMIT_ART_REQUEST, fetchArts);
   yield takeLatest(SIGNUP_REQUEST, signupRequestHandler);
   yield takeLatest(LOGIN_REQUEST, loginRequestWatcher);
   yield takeLatest(GET_ALL_ARTS, getAllArtsWorker);
   yield takeLatest(GET_MY_ARTS, getMyArtsWatcher);
+  yield takeLatest(IMAGE_LIKE_REQUEST, imageLikeRequestWatcher);
 }
 
 export default function* rootSaga() {

@@ -29,6 +29,8 @@ class Dashboard extends React.Component {
                   likes={ar.likes}
                   image={ar.art}
                   shares={ar.shares}
+                  imagId={ar._id}
+
                 />
               );
             })}
