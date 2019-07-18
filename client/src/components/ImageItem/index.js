@@ -32,6 +32,7 @@ class ImageItem extends React.Component {
     const updataLikes = tlikes && tlikes.likes;
     console.log("imageItemid", imageId);
     return (
+    
       <Col span={8}>
         <Card
           hoverable
@@ -64,7 +65,7 @@ class ImageItem extends React.Component {
             </Button>
           ]}
         >
-          <img src={image} alt="some image" width=" 500px" height="500px" />
+          <img src={image} alt="some image" width=" 100%" height="auto"/>
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
@@ -72,6 +73,7 @@ class ImageItem extends React.Component {
           <p>Some contents...</p>
         </Modal>
       </Col>
+     
     );
   }
 }

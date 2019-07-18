@@ -1,19 +1,4 @@
-.imagesContainer {
-  margin: 0 auto;
-  width: 100%;
-  height: auto;
-  padding-left: 2rem;
-}
-.imageItem {
-  height: auto;
-  width: 100%;
-  padding: 1%;
-  margin: 15px;
-  /* border: 1px solid blue; */
+.imagesContainer{
   display: inline-block;
-}
-.image {
-  max-width: 400px;
-  height: auto;
-  max-height: 600px;
+  margin-left: 5rem;
 }

@@ -18,9 +18,11 @@ class App extends React.Component {
       <Layout className="layout">
         <Content>
           <div
+          className="divMain"
             style={{
               background: "#fff",
-              minHeight: 280
+              minHeight: 280,
+              
             }}
           >
             <SectionTop />
