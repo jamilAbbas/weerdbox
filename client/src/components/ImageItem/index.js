@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Icon, Avatar, Row, Col, Modal, Button } from "antd";
 import LikeandShare from "../LikeandShare";
+import { connect } from "react-redux";
 // import "./styles.css";
 
 class ImageItem extends React.Component {
@@ -26,9 +27,10 @@ class ImageItem extends React.Component {
   };
 
   render() {
-    const { name, email, likes, image, shares ,imageId} = this.props;
+    const { name, email, likes, image, shares, imageId, tlikes } = this.props;
     const { visible, loading } = this.state;
-    console.log('imageItemid', imageId)
+    const updataLikes = tlikes && tlikes.likes;
+    console.log("imageItemid", imageId);
     return (
       <Col span={8}>
         <Card
@@ -43,7 +45,12 @@ class ImageItem extends React.Component {
             />
           }
         >
-        <LikeandShare likes={likes} imageId={imageId} shares={shares}/>
+          <LikeandShare
+            likes={likes}
+            imageId={imageId}
+            shares={shares}
+            hearts={updataLikes}
+          />
         </Card>
         <Modal
           visible={visible}
@@ -68,4 +75,12 @@ class ImageItem extends React.Component {
     );
   }
 }
-export default ImageItem;
+const mapStateToProps = state => {
+  return {
+    tlikes: state.LikeandShare
+  };
+};
+export default connect(
+  mapStateToProps,
+  null
+)(ImageItem);

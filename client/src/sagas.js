@@ -13,6 +13,9 @@ import { getArtsSuccess } from "./containers/app/actions";
 import { getMyArtsSuccess } from "./containers/Dashboard/actions";
 import jwt_decode from "jwt-decode";
 import { IMAGE_LIKE_REQUEST } from "./components/LikeandShare/constants";
+import { imageLikeSuccess } from "./components/LikeandShare/actions";
+import { getAllArts } from "./containers/app/actions";
+import { message } from "antd";
 function* fetchArts(action) {
   const token = getAuthToken();
   const data = {
@@ -160,9 +163,14 @@ function* imageLikeRequestWatcher(action) {
       referrer: "no-referrer",
       body: JSON.stringify(data)
     }).then(res => res.json());
-    console.log("-------------resp like actio -------");
-    console.log(response);
-    // yield put(getMyArtsSuccess(response));
+    // yield put(imageLikeSuccess(response));
+    console.log("oooooooooooooo", response);
+    if (response.imageLiked === "You have already Liked this image") {
+      console.log(response.imageLiked);
+      message.warn(response.imageLiked);
+    } else {
+      yield put(getAllArts());
+    }
   } catch (error) {
     console.log("catch dashboard error");
   }

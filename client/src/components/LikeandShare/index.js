@@ -6,21 +6,27 @@ import shareIcon from "../../data/images/share.png";
 import { imageLikeRequest } from "./actions";
 
 class LikeandShare extends React.Component {
+  state = {
+    clicked: false
+  };
   handleLike(imageId) {
-    
     const { isAuthenticated, user } = this.props.auth;
 
     if (isAuthenticated) {
       this.props.onClickImage(imageId, user.id);
+      this.setState({
+        clicked: !this.state.clicked
+      });
     } else {
       message.info("Please login to like and share ");
     }
   }
-  
+
   render() {
-    const { likes, shares, imageId} = this.props;   
-      console.log('imageId',imageId )
-    
+    const { likes, shares, imageId, newlikes, hearts } = this.props;
+    console.log("imageId", imageId);
+    const lik = newlikes && newlikes.likes;
+    console.log("888888888888888", lik);
     return (
       <div>
         <Icon
@@ -43,12 +49,14 @@ class LikeandShare extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    newlikes: state.LikeandShare
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    onClickImage: (imageId, userId) => dispatch(imageLikeRequest(imageId, userId))
+    onClickImage: (imageId, userId) =>
+      dispatch(imageLikeRequest(imageId, userId))
   };
 };
 
