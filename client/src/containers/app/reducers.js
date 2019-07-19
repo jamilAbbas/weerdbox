@@ -8,7 +8,9 @@ const initialState = {
 function mainSectionReducer(state = [], action) {
   switch (action.type) {
     case types.GET_ALL_ARTS_SUCCESS:
-      return  action.payload;
+      return action.payload;
+    case types.SEARCH_ARTS_SUCCESS:
+      return action.payload;
   }
   return state;
 }

@@ -5,10 +5,10 @@
 }
 
 .wrapper {
-  height: 538px;
+  height: 95vh;
   width: 100%;
-  /* background: #001529; */
-  background-image: url("../../data/images/home.jpg");
+  background: #001529;
+  /* background-image: url(/static/media/home.6eede587.jpg); */
   background-size: cover;
 }
 .weerdboxbannerimage {
@@ -20,7 +20,7 @@
   font-size: 16px;
   font-weight: 500;
   padding-top: 10px;
-  margin-top: 57px;
+  margin-top: 146px;
   text-align: left;
   text-shadow: 2px 2px #000000;
 }
@@ -37,7 +37,8 @@
   font-size: large;
 }
 .submitArtButton {
-  margin: 2rem;
+  margin-top: 6rem;
+  margin-right: 2rem;
 }
 .searchbar {
   margin-top: 2rem;

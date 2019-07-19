@@ -14,7 +14,8 @@ import { getMyArtsSuccess } from "./containers/Dashboard/actions";
 import jwt_decode from "jwt-decode";
 import { IMAGE_LIKE_REQUEST } from "./components/LikeandShare/constants";
 import { imageLikeSuccess } from "./components/LikeandShare/actions";
-import { getAllArts } from "./containers/app/actions";
+import { getAllArts, searchArtsSuccess } from "./containers/app/actions";
+import { SEARCH_ARTS_REQUEST } from "./containers/app/constants";
 import { message } from "antd";
 function* fetchArts(action) {
   const token = getAuthToken();
@@ -176,6 +177,37 @@ function* imageLikeRequestWatcher(action) {
   }
 }
 
+function* searchArtsWatcher(action) {
+  console.log("searchArtsWatcher");
+  console.log(action);
+  const data = {
+    searchQuery: action.payload
+  };
+  try {
+    const response = yield fetch("arts/search", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      console.log(response.noSearchResult);
+      message.warn(" No Results Found");
+    } else {
+      yield put(searchArtsSuccess(response));
+    }
+  } catch (error) {
+    console.log("search error");
+  }
+}
+
 function* submitArtWatcher(values) {
   yield takeLatest(SUBMIT_ART_REQUEST, fetchArts);
   yield takeLatest(SIGNUP_REQUEST, signupRequestHandler);
@@ -183,6 +215,7 @@ function* submitArtWatcher(values) {
   yield takeLatest(GET_ALL_ARTS, getAllArtsWorker);
   yield takeLatest(GET_MY_ARTS, getMyArtsWatcher);
   yield takeLatest(IMAGE_LIKE_REQUEST, imageLikeRequestWatcher);
+  yield takeLatest(SEARCH_ARTS_REQUEST, searchArtsWatcher);
 }
 
 export default function* rootSaga() {

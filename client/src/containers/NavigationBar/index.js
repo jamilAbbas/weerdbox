@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../data/images/Copy.png";
 import { connect } from "react-redux";
 import { setCurrentUser } from "../Login/actions";
+import "./styles.css";
 const { Header } = Layout;
 
 class NavigationBar extends React.Component {
@@ -18,7 +19,7 @@ class NavigationBar extends React.Component {
     console.log("----------nav props", this.props.auth);
     const { isAuthenticated } = this.props.auth;
     return (
-      <Layout className="layout">
+      <Layout className="layousst">
         <Header>
           <Link to="/">
             <img className="logo" alt="logo" src={Logo} />
@@ -36,9 +37,7 @@ class NavigationBar extends React.Component {
             <Link to="/rules" style={{ marginLeft: "1rem" }}>
               Rules
             </Link>
-            <Link to="/" style={{ marginLeft: "1rem" }}>
-              Home
-            </Link>
+
             {!isAuthenticated ? (
               <>
                 <Link to="/register" style={{ marginLeft: "1rem" }}>

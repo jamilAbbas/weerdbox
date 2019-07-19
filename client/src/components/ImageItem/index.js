@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Icon, Avatar, Row, Col, Modal, Button } from "antd";
 import LikeandShare from "../LikeandShare";
 import { connect } from "react-redux";
-// import "./styles.css";
+import "./style.css";
 
 class ImageItem extends React.Component {
   state = {
@@ -27,12 +27,20 @@ class ImageItem extends React.Component {
   };
 
   render() {
-    const { name, email, likes, image, shares, imageId, tlikes } = this.props;
+    const {
+      name,
+      email,
+      likes,
+      image,
+      shares,
+      imageId,
+      tlikes,
+      tags
+    } = this.props;
     const { visible, loading } = this.state;
     const updataLikes = tlikes && tlikes.likes;
     console.log("imageItemid", imageId);
     return (
-    
       <Col span={8}>
         <Card
           hoverable
@@ -41,7 +49,7 @@ class ImageItem extends React.Component {
             <img
               alt="some image"
               src={image}
-              style={{ height: "400px" }}
+              style={{ height: "400px", maxWidth: "350px", width: "auto" }}
               onClick={this.showModal}
             />
           }
@@ -65,15 +73,14 @@ class ImageItem extends React.Component {
             </Button>
           ]}
         >
-          <img src={image} alt="some image" width=" 100%" height="auto"/>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <div className="content">
+            <div>
+              <img src={image} alt="some image" width="60%" height="auto" />
+            </div>
+            <div />
+          </div>
         </Modal>
       </Col>
-     
     );
   }
 }

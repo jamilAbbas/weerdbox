@@ -20,6 +20,7 @@ class MainSection extends React.Component {
               image={ar.art}
               shares={ar.shares}
               imageId={ar._id}
+              tags={ar.tags}
             />
           ))}
       </div>

@@ -85,4 +85,21 @@ router.post("/myarts", (req, res) => {
     res.json(arts);
   });
 });
+
+// @route Post/api/arts/search
+// @desc Search Arts
+// @access public
+
+router.post("/search", (req, res) => {
+  const searchResult = Art.find({
+    tags: { $regex: req.body.searchQuery, $options: "$i" }
+  }).then(arts => {
+    if (!arts) {
+      return res.status(404).send({ noSearchResult: "No results found" });
+    } else {
+      res.json(arts);
+    }
+  });
+});
+
 module.exports = router;
