@@ -62,7 +62,7 @@ class SectionTop extends React.Component {
           visible: false
         });
 
-        window.location.replace("/");
+        window.location.replace("/thanks");
         message.success("You have successfully uploaded your art!");
       }
     });

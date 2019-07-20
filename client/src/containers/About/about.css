@@ -19,9 +19,10 @@
   height: 200px;
 }
 .containerDiv {
-  background-image: url("../../data/images/keyboard.jpg");
+  /* background-image: url("../../data/images/keyboard.jpg"); */
+  background: #001529;
   object-fit: cover;
-  height: 91vh;
+  height: 100vh;
   border-radius: 10px;
 }
 .divLogo {

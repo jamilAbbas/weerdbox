@@ -46,7 +46,8 @@ class ImageItem extends React.Component {
     const updataLikes = tlikes && tlikes.likes;
     console.log("imageItemid", image);
     return (
-      <Col span={8}>
+      // <Col span={7}>
+      <div className="imageCard">
         <Card
           hoverable
           style={{ width: 400 }}
@@ -54,7 +55,7 @@ class ImageItem extends React.Component {
             <img
               alt="some image"
               src={image}
-              style={{ height: "350px", maxWidth: "350px", width: "auto" }}
+              style={{ height: "350px", width: "400px" }}
               onClick={this.showModal}
             />
           }
@@ -84,7 +85,7 @@ class ImageItem extends React.Component {
                 src={image}
                 alt="some image"
                 width="60%"
-                height="auto"
+                height="460px"
                 style={{ width: "96%", borderRadius: "5px" }}
               />
               <div>
@@ -146,7 +147,8 @@ class ImageItem extends React.Component {
             <div />
           </div>
         </Modal>
-      </Col>
+      </div>
+      // </Col>
     );
   }
 }

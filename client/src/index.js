@@ -17,8 +17,10 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from "./sagas";
 import About from "./containers/About";
 import Rules from "./containers/Rules";
+import Thanks from "./components/Thanks";
 import Dashboard from "./containers/Dashboard";
 import { setCurrentUser } from "./containers/Login/actions";
+import Admin from "./containers/Admin";
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
@@ -47,6 +49,10 @@ ReactDOM.render(
       <Route path="/login" component={Login} />
       <Route path="/about" component={About} />
       <Route path="/rules" component={Rules} />
+      <Route path="/thanks" component={Thanks} />
+      <Switch>
+        <PrivateRoute exact path="/admin" component={Admin} />
+      </Switch>
       <Switch>
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </Switch>

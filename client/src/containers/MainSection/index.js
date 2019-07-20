@@ -10,10 +10,12 @@ class MainSection extends React.Component {
   render() {
     const { arts, allarts } = this.props;
     console.log("all arts----", allarts);
+    const approvedArts =
+      allarts && allarts.filter(arts => arts.status === "approved");
     return (
       <div class="imagesContainer">
-        {allarts.length != 0 &&
-          allarts.map(ar => (
+        {approvedArts.length != 0 &&
+          approvedArts.map(ar => (
             <ImageItem
               name={ar.name}
               email={ar.email}

@@ -1,19 +1,19 @@
-.colCLs{
- 
-    margin-top: 17%;
-   background-color:white;
-   border-radius: 10px;
-   padding: 2rem;
-  }
-.colCLs  p{
-    color:black;
- float: none;
+.colCLs {
+  margin-top: 17%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
 }
-.colCLs h1{
-    color:black;
+.colCLs p {
+  color: black;
+  float: none;
 }
-.divRule{
-    background: url('../../data/images/keyboard.jpg');
-    object-fit: cover;
-    height: 91vh;
+.colCLs h1 {
+  color: black;
+}
+.divRule {
+  /* background: url('../../data/images/keyboard.jpg'); */
+  background: #001529;
+  object-fit: cover;
+  height: 100vh;
 }

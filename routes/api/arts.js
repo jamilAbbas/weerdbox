@@ -21,8 +21,6 @@ router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("tags request body-----");
-    console.log(req.body.tags);
     let tags;
     if (typeof (req.body.tags !== "undefined")) {
       tags = req.body.tags.split(",");
@@ -63,7 +61,6 @@ router.get("/all", (req, res) => {
 // @access private
 
 router.post("/myarts", (req, res) => {
-  console.log("---myarts api", req.body);
   const arts = Art.find({ email: req.body.email }).then(arts => {
     if (!arts) {
       return res.status(404).send({ notfound: "No Arts found for this user" });
@@ -77,7 +74,6 @@ router.post("/myarts", (req, res) => {
 // @access private
 
 router.post("/myarts", (req, res) => {
-  console.log("---myarts api", req.body);
   const arts = Art.find({ email: req.body.email }).then(arts => {
     if (!arts) {
       return res.status(404).send({ notfound: "No Arts found for this user" });
@@ -98,6 +94,50 @@ router.post("/search", (req, res) => {
       return res.status(404).send({ noSearchResult: "No results found" });
     } else {
       res.json(arts);
+    }
+  });
+});
+
+// @route Post/api/arts/approve
+// @desc approve Arts
+// @access private
+
+router.post("/approve", (req, res) => {
+  Art.updateOne({ _id: req.body.imageId }, { status: "approved" }).then(art => {
+    if (!art) {
+      res.json({ updateFailed: "Could Not Update" });
+    } else {
+      res.json({ updateSuccess: "Sussessfully approved" });
+    }
+  });
+});
+
+// @route Post/api/arts/disapprove
+// @desc disapprove Arts
+// @access private
+
+router.post("/disapprove", (req, res) => {
+  Art.updateOne({ _id: req.body.imageId }, { status: "requested" }).then(
+    art => {
+      if (!art) {
+        res.json({ updateFailed: "Could Not Update" });
+      } else {
+        res.json({ updateSuccess: "Sussessfully disapproved" });
+      }
+    }
+  );
+});
+
+// @route Post/api/arts/delete
+// @desc delete Art
+// @access private
+
+router.post("/delete", (req, res) => {
+  Art.deleteOne({ _id: req.body.imageId }).then(art => {
+    if (!art) {
+      res.json({ deleteFailed: "Could Not delete the art" });
+    } else {
+      res.json({ deleteSuccess: "Sussessfully deleted the art" });
     }
   });
 });

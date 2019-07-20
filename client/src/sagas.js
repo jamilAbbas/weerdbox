@@ -16,6 +16,11 @@ import { IMAGE_LIKE_REQUEST } from "./components/LikeandShare/constants";
 import { imageLikeSuccess } from "./components/LikeandShare/actions";
 import { getAllArts, searchArtsSuccess } from "./containers/app/actions";
 import { SEARCH_ARTS_REQUEST } from "./containers/app/constants";
+import {
+  ON_APPROVE_ART,
+  ON_DISAPPROVE_ART,
+  ON_DELETE_ART
+} from "./containers/Admin/constants";
 import { message } from "antd";
 function* fetchArts(action) {
   const token = getAuthToken();
@@ -178,8 +183,6 @@ function* imageLikeRequestWatcher(action) {
 }
 
 function* searchArtsWatcher(action) {
-  console.log("searchArtsWatcher");
-  console.log(action);
   const data = {
     searchQuery: action.payload
   };
@@ -208,6 +211,94 @@ function* searchArtsWatcher(action) {
   }
 }
 
+function* approveRequestWatcher(action) {
+  const data = {
+    imageId: action.payload
+  };
+  try {
+    const response = yield fetch("arts/approve", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      console.log(response.updateFailed);
+      message.warn(" Could not update, try again");
+    } else {
+      yield put(getAllArts());
+      message.success("Successfully approved");
+    }
+  } catch (error) {
+    console.log("search error");
+  }
+}
+
+function* disApproveRequestWatcher(action) {
+  const data = {
+    imageId: action.payload
+  };
+  try {
+    const response = yield fetch("arts/disapprove", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      message.warn(" Could not disapprove, try again");
+    } else {
+      yield put(getAllArts());
+      message.success("Successfully disapproved");
+    }
+  } catch (error) {
+    console.log("search error");
+  }
+}
+
+function* deleteArtWatcher(action) {
+  const data = {
+    imageId: action.payload
+  };
+  try {
+    const response = yield fetch("arts/delete", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      message.warn(" Could not delete, try again");
+    } else {
+      yield put(getAllArts());
+      message.success("Successfully deleted");
+    }
+  } catch (error) {
+    console.log("delete error");
+  }
+}
+
 function* submitArtWatcher(values) {
   yield takeLatest(SUBMIT_ART_REQUEST, fetchArts);
   yield takeLatest(SIGNUP_REQUEST, signupRequestHandler);
@@ -216,6 +307,9 @@ function* submitArtWatcher(values) {
   yield takeLatest(GET_MY_ARTS, getMyArtsWatcher);
   yield takeLatest(IMAGE_LIKE_REQUEST, imageLikeRequestWatcher);
   yield takeLatest(SEARCH_ARTS_REQUEST, searchArtsWatcher);
+  yield takeLatest(ON_APPROVE_ART, approveRequestWatcher);
+  yield takeLatest(ON_DISAPPROVE_ART, disApproveRequestWatcher);
+  yield takeLatest(ON_DELETE_ART, deleteArtWatcher);
 }
 
 export default function* rootSaga() {

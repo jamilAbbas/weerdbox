@@ -43,6 +43,14 @@ const ArtSchema = new Schema({
     type: Number,
     default: 0
   },
+  status: {
+    type: String,
+    default: 'requested'
+  },
+  isRejected: {
+    type: Boolean,
+    default: false,
+  },
   date: {
     type: Date,
     default: Date.now

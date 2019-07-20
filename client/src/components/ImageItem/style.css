@@ -21,3 +21,8 @@
   text-align: center;
   margin-top: 1rem;
 }
+.imageCard {
+  display: inline-block;
+  justify-content: center;
+  margin: 0.5rem;
+}

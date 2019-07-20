@@ -17,7 +17,7 @@ class NavigationBar extends React.Component {
 
   render() {
     console.log("----------nav props", this.props.auth);
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, user } = this.props.auth;
     return (
       <Layout className="layousst">
         <Header>
@@ -52,9 +52,16 @@ class NavigationBar extends React.Component {
               </>
             ) : (
               <>
-                <Link to="/dashboard" style={{ marginLeft: "1rem" }}>
-                  Dashboard
-                </Link>
+                {user && user.email !== "pigeonhack1@gmail.com" ? (
+                  <Link to="/dashboard" style={{ marginLeft: "1rem" }}>
+                    Dashboard
+                  </Link>
+                ) : (
+                  <Link to="/admin" style={{ marginLeft: "1rem" }}>
+                    Admin
+                  </Link>
+                )}
+
                 <Button
                   style={{ marginLeft: "1rem" }}
                   onClick={() => this.logoutUser()}

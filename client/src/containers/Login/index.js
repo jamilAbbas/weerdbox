@@ -16,7 +16,12 @@ class NormalLoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      console.log("nextprops admin check--------------->>", nextProps);
+      if (nextProps.auth.user.email === "pigeonhack1@gmail.com") {
+        this.props.history.push("/admin");
+      } else {
+        this.props.history.push("/dashboard");
+      }
     }
   }
 
@@ -24,52 +29,52 @@ class NormalLoginForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     console.log("props....", this.props.auth);
     return (
-      <div style={{paddingTop: '5rem'}}>
-      <Row>
-        <Col span={8} offset={8} style={{ textAlign: "center" }}>
-          <h1 style={{ marginTop: "1rem", marginLeft: "1rem" }}>Login</h1>
-          <Form onSubmit={this.handleSubmit} className="login-form">
-            <Form.Item>
-              {getFieldDecorator("username", {
-                rules: [
-                  { required: true, message: "Please input your username!" }
-                ]
-              })(
-                <Input
-                  prefix={
-                    <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                  }
-                  placeholder="Username"
-                />
-              )}
-            </Form.Item>
-            <Form.Item>
-              {getFieldDecorator("password", {
-                rules: [
-                  { required: true, message: "Please input your Password!" }
-                ]
-              })(
-                <Input
-                  prefix={
-                    <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                  }
-                  type="password"
-                  placeholder="Password"
-                />
-              )}
-            </Form.Item>
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-              >
-                Log in
-              </Button>
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
+      <div style={{ paddingTop: "5rem" }}>
+        <Row>
+          <Col span={8} offset={8} style={{ textAlign: "center" }}>
+            <h1 style={{ marginTop: "1rem", marginLeft: "1rem" }}>Login</h1>
+            <Form onSubmit={this.handleSubmit} className="login-form">
+              <Form.Item>
+                {getFieldDecorator("username", {
+                  rules: [
+                    { required: true, message: "Please input your username!" }
+                  ]
+                })(
+                  <Input
+                    prefix={
+                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                    }
+                    placeholder="Username"
+                  />
+                )}
+              </Form.Item>
+              <Form.Item>
+                {getFieldDecorator("password", {
+                  rules: [
+                    { required: true, message: "Please input your Password!" }
+                  ]
+                })(
+                  <Input
+                    prefix={
+                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                    }
+                    type="password"
+                    placeholder="Password"
+                  />
+                )}
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login-form-button"
+                >
+                  Log in
+                </Button>
+              </Form.Item>
+            </Form>
+          </Col>
+        </Row>
       </div>
     );
   }
@@ -84,8 +89,7 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     auth: state.auth,
-    currentUser: state.currentUser,
-    
+    currentUser: state.currentUser
   };
 };
 
