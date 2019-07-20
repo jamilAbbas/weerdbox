@@ -9,6 +9,7 @@ const { Meta } = Card;
 class MainSection extends React.Component {
   render() {
     const { arts, allarts } = this.props;
+    console.log("all arts----", allarts);
     return (
       <div class="imagesContainer">
         {allarts.length != 0 &&
@@ -21,6 +22,9 @@ class MainSection extends React.Component {
               shares={ar.shares}
               imageId={ar._id}
               tags={ar.tags}
+              description={ar.description}
+              website={ar.website}
+              contact={ar.phone}
             />
           ))}
       </div>

@@ -1,7 +1,9 @@
 import React from "react";
-import { Card, Icon, Avatar, Row, Col, Modal, Button } from "antd";
+import { Card, Icon, Avatar, Row, Col, Modal, Button, Tag } from "antd";
 import LikeandShare from "../LikeandShare";
 import { connect } from "react-redux";
+import shareIcon from "../../data/images/share.png";
+
 import "./style.css";
 
 class ImageItem extends React.Component {
@@ -35,11 +37,14 @@ class ImageItem extends React.Component {
       shares,
       imageId,
       tlikes,
-      tags
+      tags,
+      website,
+      description,
+      contact
     } = this.props;
     const { visible, loading } = this.state;
     const updataLikes = tlikes && tlikes.likes;
-    console.log("imageItemid", imageId);
+    console.log("imageItemid", image);
     return (
       <Col span={8}>
         <Card
@@ -49,7 +54,7 @@ class ImageItem extends React.Component {
             <img
               alt="some image"
               src={image}
-              style={{ height: "400px", maxWidth: "350px", width: "auto" }}
+              style={{ height: "350px", maxWidth: "350px", width: "auto" }}
               onClick={this.showModal}
             />
           }
@@ -63,7 +68,7 @@ class ImageItem extends React.Component {
         </Card>
         <Modal
           visible={visible}
-          title="Title"
+          title={name}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           width={800}
@@ -74,9 +79,70 @@ class ImageItem extends React.Component {
           ]}
         >
           <div className="content">
-            <div>
-              <img src={image} alt="some image" width="60%" height="auto" />
+            <div className="imageHolder">
+              <img
+                src={image}
+                alt="some image"
+                width="60%"
+                height="auto"
+                style={{ width: "96%", borderRadius: "5px" }}
+              />
+              <div>
+                <div className="likeContainer">
+                  <span style={{ float: "left" }}>
+                    <Icon
+                      // onClick={() => this.handleLike(imageId)}
+                      style={{ fontSize: "30px", color: "#08c" }}
+                      type="heart"
+                      theme="filled"
+                    />{" "}
+                    Likes : {likes}
+                  </span>
+                  <span style={{ width: "100%" }}>
+                    <a href={image} downnload>
+                      Download
+                    </a>
+                  </span>
+                  <span style={{ float: "right", marginRight: "1rem" }}>
+                    <img
+                      src={shareIcon}
+                      alt="share icon"
+                      style={{ marginRight: "4px", marginBottom: "2px" }}
+                    />
+                    shares: {shares}
+                  </span>
+                </div>
+              </div>
             </div>
+            <div className="description">
+              <p>
+                <span style={{ fontWeight: "600", color: "black" }}>Name</span>:{" "}
+                {name}
+              </p>
+              <p>
+                <span style={{ fontWeight: "600", color: "black" }}>
+                  Wesite
+                </span>
+                : {website}
+              </p>
+              <p>
+                <span style={{ fontWeight: "600", color: "black" }}>
+                  Description
+                </span>
+                : {description}
+              </p>
+              <p>
+                <span style={{ fontWeight: "600", color: "black" }}>
+                  Contact
+                </span>
+                : {contact}
+              </p>
+              <p>
+                <h4 style={{ fontWeight: "600", color: "black" }}>Tags</h4>
+                {tags && tags.map(t => <Tag color="geekblue">{t}</Tag>)}
+              </p>
+            </div>
+
             <div />
           </div>
         </Modal>

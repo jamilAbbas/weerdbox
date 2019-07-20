@@ -24,6 +24,7 @@ class NormalLoginForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     console.log("props....", this.props.auth);
     return (
+      <div style={{paddingTop: '5rem'}}>
       <Row>
         <Col span={8} offset={8} style={{ textAlign: "center" }}>
           <h1 style={{ marginTop: "1rem", marginLeft: "1rem" }}>Login</h1>
@@ -69,6 +70,7 @@ class NormalLoginForm extends React.Component {
           </Form>
         </Col>
       </Row>
+      </div>
     );
   }
 }

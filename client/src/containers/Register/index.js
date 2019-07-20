@@ -83,91 +83,91 @@ class RegistrationForm extends React.Component {
       }
     };
     return (
-      <div className="regDiv">
-      <Row>
-        <Col span={13} offset={4} style={{ textAlign: "center" }}>
-          <h1 style={{ marginTop: "1rem", marginLeft: "7rem" }}>Register</h1>
-          <div>
-            <Form
-              {...formItemLayout}
-              onSubmit={this.handleSubmit}
-              style={{ marginTop: "2rem" }}
-            >
-              <Form.Item label="Full Name">
-                {getFieldDecorator("name", {
-                  rules: [
-                    {
-                      message: "The input is not valid E-mail!"
-                    },
-                    {
-                      required: true,
-                      message: "Please input your full name!"
-                    }
-                  ]
-                })(<Input />)}
-              </Form.Item>
-              <Form.Item label="E-mail">
-                {getFieldDecorator("email", {
-                  rules: [
-                    {
-                      type: "email",
-                      message: "The input is not valid E-mail!"
-                    },
-                    {
-                      required: true,
-                      message: "Please input your E-mail!"
-                    }
-                  ]
-                })(<Input />)}
-              </Form.Item>
-              <Form.Item label="Password" hasFeedback>
-                {getFieldDecorator("password", {
-                  rules: [
-                    {
-                      required: true,
-                      message: "Please input your password!"
-                    },
-                    {
-                      validator: this.validateToNextPassword
-                    }
-                  ]
-                })(<Input.Password />)}
-              </Form.Item>
-              <Form.Item label="Confirm Password" hasFeedback>
-                {getFieldDecorator("confirm", {
-                  rules: [
-                    {
-                      required: true,
-                      message: "Please confirm your password!"
-                    },
-                    {
-                      validator: this.compareToFirstPassword
-                    }
-                  ]
-                })(<Input.Password onBlur={this.handleConfirmBlur} />)}
-              </Form.Item>
-              <Form.Item {...tailFormItemLayout}>
-                {getFieldDecorator("agreement", {
-                  valuePropName: "checked"
-                })(
-                  <Checkbox>
-                    I have read the <a href="">agreement</a>
-                  </Checkbox>
-                )}
-              </Form.Item>
-              <Form.Item {...tailFormItemLayout}>
-                <Button type="primary" htmlType="submit">
-                  Register
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
-          {this.props.register.isRegisterd &&
-            message.success(
-              "Successfully Registered Please Log in to continue"
-            )}
-        </Col>
-      </Row>
+      <div className="regDiv" style={{ paddingTop: "5rem" }}>
+        <Row>
+          <Col span={13} offset={4} style={{ textAlign: "center" }}>
+            <h1 style={{ marginTop: "1rem", marginLeft: "7rem" }}>Register</h1>
+            <div>
+              <Form
+                {...formItemLayout}
+                onSubmit={this.handleSubmit}
+                style={{ marginTop: "2rem" }}
+              >
+                <Form.Item label="Full Name">
+                  {getFieldDecorator("name", {
+                    rules: [
+                      {
+                        message: "The input is not valid E-mail!"
+                      },
+                      {
+                        required: true,
+                        message: "Please input your full name!"
+                      }
+                    ]
+                  })(<Input />)}
+                </Form.Item>
+                <Form.Item label="E-mail">
+                  {getFieldDecorator("email", {
+                    rules: [
+                      {
+                        type: "email",
+                        message: "The input is not valid E-mail!"
+                      },
+                      {
+                        required: true,
+                        message: "Please input your E-mail!"
+                      }
+                    ]
+                  })(<Input />)}
+                </Form.Item>
+                <Form.Item label="Password" hasFeedback>
+                  {getFieldDecorator("password", {
+                    rules: [
+                      {
+                        required: true,
+                        message: "Please input your password!"
+                      },
+                      {
+                        validator: this.validateToNextPassword
+                      }
+                    ]
+                  })(<Input.Password />)}
+                </Form.Item>
+                <Form.Item label="Confirm Password" hasFeedback>
+                  {getFieldDecorator("confirm", {
+                    rules: [
+                      {
+                        required: true,
+                        message: "Please confirm your password!"
+                      },
+                      {
+                        validator: this.compareToFirstPassword
+                      }
+                    ]
+                  })(<Input.Password onBlur={this.handleConfirmBlur} />)}
+                </Form.Item>
+                <Form.Item {...tailFormItemLayout}>
+                  {getFieldDecorator("agreement", {
+                    valuePropName: "checked"
+                  })(
+                    <Checkbox>
+                      I have read the <a href="">agreement</a>
+                    </Checkbox>
+                  )}
+                </Form.Item>
+                <Form.Item {...tailFormItemLayout}>
+                  <Button type="primary" htmlType="submit">
+                    Register
+                  </Button>
+                </Form.Item>
+              </Form>
+            </div>
+            {this.props.register.isRegisterd &&
+              message.success(
+                "Successfully Registered Please Log in to continue"
+              )}
+          </Col>
+        </Row>
       </div>
     );
   }

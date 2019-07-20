@@ -31,6 +31,9 @@ class NavigationBar extends React.Component {
             defaultSelectedKeys={["2"]}
             style={{ lineHeight: "64px", float: "right" }}
           >
+            <Link to="/" style={{ marginLeft: "1rem" }}>
+              Home
+            </Link>
             <Link to="/about" style={{ marginLeft: "1rem" }}>
               About
             </Link>

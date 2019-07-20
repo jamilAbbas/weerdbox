@@ -1,10 +1,11 @@
 .regform {
-    padding: 2rem;
-    background: grey;
-    border-radius: 10px;
+  padding: 2rem;
+  background: grey;
+  border-radius: 10px;
 }
-regDiv{
-    background: url('../../data/images/keyboard.jpg');
-    height: 91vh;
-    object-fit: cover;
+regDiv {
+  background: url("../../data/images/keyboard.jpg");
+  height: 91vh;
+  object-fit: cover;
+  padding-top: 5rem !important;
 }

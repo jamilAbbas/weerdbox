@@ -12,13 +12,11 @@ class Dashboard extends React.Component {
 
   render() {
     const { myarts } = this.props;
-    console.log("--------------------my arts----------------");
-    console.log(myarts);
     return (
       <div>
         <div style={{ textAlign: "center" }}>
           {" "}
-          <h1 style={{ marginTop: "2rem" }}>My Arts</h1>
+          <h1 style={{ paddingTop: "6rem" }}>My Arts</h1>
           {myarts &&
             myarts.length > 0 &&
             myarts.map(ar => {
@@ -30,7 +28,6 @@ class Dashboard extends React.Component {
                   image={ar.art}
                   shares={ar.shares}
                   imagId={ar._id}
-
                 />
               );
             })}
