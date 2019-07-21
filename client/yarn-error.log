@@ -1,8 +1,8 @@
 Arguments: 
-  /home/engintech/.nvm/versions/node/v10.15.1/bin/node /usr/local/bin/yarn start
+  /home/engintech/.nvm/versions/node/v10.15.1/bin/node /usr/local/bin/yarn build
 
 PATH: 
-  /home/engintech/project/stonebird/Blotter/weerdboxbackend/node_modules/.bin:/home/engintech/.config/yarn/link/node_modules/.bin:/home/engintech/project/stonebird/Blotter/weerdboxbackend/node_modules/.bin:/home/engintech/.config/yarn/link/node_modules/.bin:/home/engintech/.nvm/versions/node/v10.15.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/engintech/.nvm/versions/node/v10.15.1/lib/node_modules/npm/bin/node-gyp-bin:/home/engintech/.nvm/versions/node/v10.15.1/bin/node_modules/npm/bin/node-gyp-bin:/home/engintech/.nvm/versions/node/v10.15.1/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/engintech/project/stonebird/Blotter/weerdboxbackend/node_modules/.bin:/home/engintech/.nvm/versions/node/v10.15.1/bin:/home/engintech/.sdkman/candidates/groovy/current/bin:/home/engintech/.sdkman/candidates/grails/current/bin:/home/engintech/bin:/home/engintech/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/engintech/.rvm/bin:/home/engintech/.rvm/bin
+  /home/engintech/.nvm/versions/node/v10.15.1/bin:/home/engintech/.sdkman/candidates/groovy/current/bin:/home/engintech/.sdkman/candidates/grails/current/bin:/home/engintech/bin:/home/engintech/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/engintech/.rvm/bin:/home/engintech/.rvm/bin
 
 Yarn version: 
   1.4.0
@@ -10133,16 +10133,9 @@ Lockfile:
       yargs-parser "^11.1.1"
 
 Trace: 
-  Error: Command failed.
-  Exit signal: SIGTERM
-  Command: sh
-  Arguments: -c react-app-rewired start
-  Directory: /home/engintech/project/stonebird/Blotter/weerdboxbackend/client
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30822:17)
-      at ChildProcess.emit (events.js:189:13)
-      at maybeClose (internal/child_process.js:970:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)
+  SyntaxError: /home/engintech/project/stonebird/Blotter/weerdboxbackend/package.json: Unexpected token / in JSON at position 364
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1036:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
