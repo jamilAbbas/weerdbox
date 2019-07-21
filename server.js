@@ -47,5 +47,5 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get("/", (req, res) => res.send("Hello World!"));
-const port = process.env.port || 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`app listenting at port ${port} `));
