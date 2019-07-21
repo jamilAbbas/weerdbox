@@ -46,6 +46,9 @@
 .arrowDown {
   margin-top: 4.5rem;
 }
+.searchbar .ant-input {
+  font-size: 24px;
+}
 
 .downArrow {
   background-color: #f2f5f7;

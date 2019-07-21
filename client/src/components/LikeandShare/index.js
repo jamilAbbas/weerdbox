@@ -25,9 +25,9 @@ class LikeandShare extends React.Component {
   render() {
     const { likes, shares, imageId, newlikes, hearts } = this.props;
     const lik = newlikes && newlikes.likes;
-   
+
     return (
-      <div>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <span onClick={() => this.handleLike(imageId)}>
           <Icon
             type="heart"

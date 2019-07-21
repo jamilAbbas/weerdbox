@@ -22,10 +22,7 @@ app.use(bodyParser.json());
 // connect to db
 
 mongoose
-  .connect(
-    "mongodb+srv://wbadmin:815mjdbn@cluster0-x3q7y.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to db"))
   .catch(err => console.log(err));
 

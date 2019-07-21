@@ -165,9 +165,9 @@ class SectionTop extends React.Component {
             <div className="searchbar">
               {" "}
               <Search
-                placeholder=" search text"
+                placeholder=" Search by tag"
                 onSearch={value => onSearchArts(value)}
-                style={{ height: 45 }}
+                style={{ height: 45, fontSize: "24px" }}
               />
             </div>
             <div class="downArrow bounce">

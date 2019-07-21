@@ -191,7 +191,6 @@ class Admin extends React.Component {
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
-            j@mil Created with Love :)
           </Footer>
         </Layout>
       </Layout>

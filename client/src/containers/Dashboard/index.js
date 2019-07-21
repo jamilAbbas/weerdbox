@@ -27,14 +27,18 @@ class Dashboard extends React.Component {
                   likes={ar.likes}
                   image={ar.art}
                   shares={ar.shares}
-                  imagId={ar._id}
+                  imageId={ar._id}
+                  tags={ar.tags}
+                  description={ar.description}
+                  website={ar.website}
+                  contact={ar.phone}
                 />
               );
             })}
           {myarts && myarts.length === 0 && (
             <p>
               {" "}
-              You have currently not uploaded any arts. You can upload the arts
+              You have currently not uploaded any arts. You can upload your arts
               from the homepage
             </p>
           )}
