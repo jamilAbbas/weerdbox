@@ -3,6 +3,13 @@ import { Card, Icon, Avatar, Row, Col, Modal, Button, Tag } from "antd";
 import LikeandShare from "../LikeandShare";
 import { connect } from "react-redux";
 import shareIcon from "../../data/images/share.png";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailShareButton
+} from "react-share";
 
 import "./style.css";
 
@@ -60,6 +67,48 @@ class ImageItem extends React.Component {
             />
           }
         >
+          <div className="socialShareContainer">
+            <div style={{ margin: "5px" }}>
+              {" "}
+              <FacebookShareButton
+                quote={"Checkout my art on Weerdbox"}
+                url={image}
+              >
+                <Icon
+                  type={"facebook"}
+                  theme="filled"
+                  style={{
+                    fontSize: "25px",
+                    color: "#3b5998"
+                  }}
+                />
+              </FacebookShareButton>
+            </div>
+            <div style={{ margin: "5px" }}>
+              <LinkedinShareButton
+                quote={"Checkout my art on Weerdbox"}
+                url={image}
+              >
+                <Icon
+                  type={"linkedin"}
+                  theme="filled"
+                  style={{ fontSize: "25px", color: "#0077B5" }}
+                />
+              </LinkedinShareButton>
+            </div>
+            <div style={{ margin: "5px" }}>
+              <TwitterShareButton
+                quote={"Checkout my art on Weerdbox"}
+                url={image}
+              >
+                <Icon
+                  type={"twitter"}
+                  style={{ fontSize: "25px", color: "#38A1F3" }}
+                />
+              </TwitterShareButton>
+            </div>
+          </div>
+
           <LikeandShare
             likes={likes}
             imageId={imageId}
