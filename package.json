@@ -5,13 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "client-install": "npm install --prefix client",    
+    "client-install": "npm install --prefix client",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "mygigforu",
   "license": "ISC",
@@ -31,5 +29,8 @@
   "devDependencies": {
     "concurrently": "^4.1.1",
     "nodemon": "^1.19.1"
+  },
+  "engines": {
+    "node": "10.15.1"
   }
 }
