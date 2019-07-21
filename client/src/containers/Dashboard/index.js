@@ -31,6 +31,13 @@ class Dashboard extends React.Component {
                 />
               );
             })}
+          {myarts && myarts.length === 0 && (
+            <p>
+              {" "}
+              You have currently not uploaded any arts. You can upload the arts
+              from the homepage
+            </p>
+          )}
         </div>
       </div>
     );

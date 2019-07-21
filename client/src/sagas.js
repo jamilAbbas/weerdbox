@@ -176,6 +176,7 @@ function* imageLikeRequestWatcher(action) {
       message.warn(response.imageLiked);
     } else {
       yield put(getAllArts());
+      message.success("Liked!");
     }
   } catch (error) {
     console.log("catch dashboard error");

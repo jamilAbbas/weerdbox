@@ -24,17 +24,18 @@ class LikeandShare extends React.Component {
 
   render() {
     const { likes, shares, imageId, newlikes, hearts } = this.props;
-    console.log("imageId", imageId);
     const lik = newlikes && newlikes.likes;
-    console.log("888888888888888", lik);
+   
     return (
       <div>
-        <Icon
-          type="heart"
-          onClick={() => this.handleLike(imageId)}
-          style={{ fontSize: "16px", color: "#08c" }}
-        />{" "}
-        Likes : {likes}
+        <span onClick={() => this.handleLike(imageId)}>
+          <Icon
+            type="heart"
+            theme={"filled"}
+            style={{ fontSize: "16px", color: "#08c" }}
+          />{" "}
+          Likes : {likes}
+        </span>
         <span style={{ float: "right" }}>
           <img
             src={shareIcon}

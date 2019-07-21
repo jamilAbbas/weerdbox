@@ -12,8 +12,8 @@
 .colAbout h2 {
   color: black;
   border-bottom: 1px solid white;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .colAbout img {
   height: 200px;
@@ -23,10 +23,9 @@
   background: #001529;
   object-fit: cover;
   height: 100vh;
-  border-radius: 10px;
 }
 .divLogo {
-  background: black;
+  background: #001529;
   opacity: 0.9;
   border-radius: 10px;
 }

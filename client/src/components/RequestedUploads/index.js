@@ -9,18 +9,18 @@ class RequestedUploads extends React.Component {
       allArts && allArts.filter(art => art.status === "requested");
     const columns = [
       {
-        title: "Email",
-        dataIndex: "email",
-        key: "email"
-        // render: text => <a href="javascript:;">{text}</a>
-      },
-      {
         title: "Art",
         dataIndex: "art",
         key: "art",
         render: art => (
-          <img src={art} height="50px" width="auto" alt="some car pic" />
+          <img src={art} height="100px" width="100px" alt="some car pic" />
         )
+      },
+      {
+        title: "Email",
+        dataIndex: "email",
+        key: "email"
+        // render: text => <a href="javascript:;">{text}</a>
       },
       {
         title: "Likes",
@@ -64,7 +64,9 @@ class RequestedUploads extends React.Component {
           <span>
             {/* <a href="javascript:;">Invite {record.name}</a>
             <Divider type="vertical" /> */}
-            <Button type="primary" onClick={() => onApproveArt(record._id)}>Approve</Button>
+            <Button type="primary" onClick={() => onApproveArt(record._id)}>
+              Approve
+            </Button>
           </span>
         )
       }

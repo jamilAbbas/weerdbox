@@ -93,7 +93,7 @@ class ImageItem extends React.Component {
                   <span style={{ float: "left" }}>
                     <Icon
                       // onClick={() => this.handleLike(imageId)}
-                      style={{ fontSize: "30px", color: "#08c" }}
+                      style={{ fontSize: "20px", color: "#08c" }}
                       type="heart"
                       theme="filled"
                     />{" "}

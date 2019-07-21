@@ -6,6 +6,7 @@ import AllEmails from "../../components/AllEmails";
 import RequestedUploads from "../../components/RequestedUploads";
 import ApprovedUploads from "../../components/ApprovedUploads";
 import AllUploads from "../../components/AllUploads";
+import Photos from "../../components/Photos";
 import { getAllArts } from "../app/actions";
 import { approveArt, disApproveArt, deleteArt } from "./actions";
 const { Header, Content, Footer, Sider } = Layout;
@@ -18,7 +19,8 @@ class Admin extends React.Component {
     showNewEmails: false,
     showAllUploads: false,
     showRequestUploads: false,
-    showApprovedUploads: false
+    showApprovedUploads: false,
+    showAllPhotos: false
   };
 
   onCollapse = collapsed => {
@@ -37,7 +39,8 @@ class Admin extends React.Component {
         showNewEmails: false,
         showAllUploads: false,
         showRequestUploads: false,
-        showApprovedUploads: false
+        showApprovedUploads: false,
+        showAllPhotos: false
       });
     }
     if (values === "showNewEmails") {
@@ -46,7 +49,8 @@ class Admin extends React.Component {
         showNewEmails: true,
         showAllUploads: false,
         showRequestUploads: false,
-        showApprovedUploads: false
+        showApprovedUploads: false,
+        showAllPhotos: false
       });
     }
     if (values === "showAllUploads") {
@@ -55,7 +59,8 @@ class Admin extends React.Component {
         showNewEmails: false,
         showAllUploads: true,
         showRequestUploads: false,
-        showApprovedUploads: false
+        showApprovedUploads: false,
+        showAllPhotos: false
       });
     }
     if (values === "showRequestUploads") {
@@ -64,7 +69,8 @@ class Admin extends React.Component {
         showNewEmails: false,
         showAllUploads: false,
         showRequestUploads: true,
-        showApprovedUploads: false
+        showApprovedUploads: false,
+        showAllPhotos: false
       });
     }
     if (values === "showApprovedUploads") {
@@ -73,12 +79,25 @@ class Admin extends React.Component {
         showNewEmails: false,
         showAllUploads: false,
         showRequestUploads: false,
-        showApprovedUploads: true
+        showApprovedUploads: true,
+        showAllPhotos: false
+      });
+    }
+    if (values === "showAllPhotos") {
+      this.setState({
+        showAllEmails: false,
+        showNewEmails: false,
+        showAllUploads: false,
+        showRequestUploads: false,
+        showApprovedUploads: false,
+        showAllPhotos: true
       });
     }
   }
   render() {
     const { allArts, onApproveArt, onDisapproveArt, onDeleteArt } = this.props;
+    const newEmails =
+      allArts && allArts.filter(art => art.status === "requested");
     return (
       <Layout style={{ minHeight: "100vh", paddingTop: "4rem" }}>
         <Sider
@@ -139,7 +158,10 @@ class Admin extends React.Component {
               </Menu.Item>
             </SubMenu>
 
-            <Menu.Item key="6">
+            <Menu.Item
+              key="6"
+              onClick={() => this.handleSelection("showAllPhotos")}
+            >
               <Icon type="desktop" />
               <span>All Photos</span>
             </Menu.Item>
@@ -149,6 +171,7 @@ class Admin extends React.Component {
           <Content style={{ margin: "16px 16px" }}>
             <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
               {this.state.showAllEmails && <AllEmails allArts={allArts} />}
+              {this.state.showNewEmails && <AllEmails allArts={newEmails} />}
               {this.state.showRequestUploads && (
                 <RequestedUploads
                   allArts={allArts}
@@ -164,6 +187,7 @@ class Admin extends React.Component {
                   onDisapproveArt={onDisapproveArt}
                 />
               )}
+              {this.state.showAllPhotos && <Photos allArts={allArts} />}
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>

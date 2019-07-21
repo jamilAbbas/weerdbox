@@ -9,18 +9,18 @@ class ApprovedUploads extends React.Component {
       allArts && allArts.filter(art => art.status === "approved");
     const columns = [
       {
-        title: "Email",
-        dataIndex: "email",
-        key: "email"
-        // render: text => <a href="javascript:;">{text}</a>
-      },
-      {
         title: "Art",
         dataIndex: "art",
         key: "art",
         render: art => (
-          <img src={art} height="50px" width="auto" alt="some car pic" />
+          <img src={art} height="100px" width="100px" alt="some car pic" />
         )
+      },
+      {
+        title: "Email",
+        dataIndex: "email",
+        key: "email"
+        // render: text => <a href="javascript:;">{text}</a>
       },
       {
         title: "Likes",

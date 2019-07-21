@@ -10,8 +10,8 @@ class about extends React.Component {
         <Row style={{ textAlign: "center" }}>
           <Col
             className="colAbout"
-            span={13}
-            offset={5}
+            span={12}
+            offset={6}
             style={{ textAlign: "center" }}
           >
           <div className="divLogo"><img src={Logoo} /></div>

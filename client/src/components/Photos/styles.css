@@ -1,0 +1,14 @@
+.singlePhoto {
+  width: 230px;
+  height: 230px;
+  display: inline-block;
+  border-radius: 10px;
+}
+/* .singlePhoto:hover {
+  width: 315px;
+  height: 315px;
+} */
+.singlePhoto > img:hover {
+  width: 230px;
+  height: 230px;
+}
