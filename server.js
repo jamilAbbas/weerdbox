@@ -21,10 +21,9 @@ require("./config/passport")(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // connect to db
-const dB =
-  "mongodb+srv://weerdboxadmin:Getwb001@cluster0-dtscb.mongodb.net/test?retryWrites=true&w=majority";
+
 mongoose
-  .connect(dB, { useNewUrlParser: true })
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to db"))
   .catch(err => console.log(err));
 
@@ -42,7 +41,7 @@ if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
 
-  app.get(/^\/(?!api).*/, (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
