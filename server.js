@@ -28,21 +28,20 @@ mongoose
   .catch(err => console.log(err));
 
 //User Routes
-app.use("/api/users", users);
+app.use("/users", users);
 //Profile Routes
-app.use("/api/profile", profile);
+app.use("/profile", profile);
 //Arts Routes
-app.use("/api/arts", arts);
+app.use("/arts", arts);
 //Likes Route
-app.use("/api/likes", likes);
+app.use("/likes", likes);
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build"));
-
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  // });
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 const port = process.env.PORT || 8000;
