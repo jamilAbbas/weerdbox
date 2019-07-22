@@ -62,7 +62,7 @@ class ImageItem extends React.Component {
             <img
               alt="some image"
               src={image}
-              style={{ height: "350px", width: "400px" }}
+              style={{ height: "250px", width: "400px" }}
               onClick={this.showModal}
             />
           }
@@ -135,7 +135,7 @@ class ImageItem extends React.Component {
                 alt="some image"
                 width="60%"
                 height="460px"
-                style={{ width: "96%", borderRadius: "5px" }}
+                style={{ width: "100%", height: "auto", borderRadius: "5px" }}
               />
               <div>
                 <div className="likeContainer">
