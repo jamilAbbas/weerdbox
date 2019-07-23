@@ -37,8 +37,15 @@ class LikeandShare extends React.Component {
           Likes : {likes}
         </span>
         <span>
-          <Button type="primary" icon="download" size={"small"}>
-            <a href={image} style={{ color: "white" }} download>
+          <Button
+            style={{
+              color: "black",
+              background: "#CBF525"
+            }}
+            icon="download"
+            size={"small"}
+          >
+            <a href={image} style={{ color: "black" }} download>
               Download
             </a>
           </Button>

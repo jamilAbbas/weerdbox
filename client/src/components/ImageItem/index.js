@@ -150,10 +150,19 @@ class ImageItem extends React.Component {
                     />{" "}
                     Likes : {likes}
                   </span>
-                  <span style={{ width: "100%" }}>
-                    <a href={image} download>
-                      Download
-                    </a>
+                  <span>
+                    <Button
+                      style={{
+                        color: "black",
+                        background: "#CBF525"
+                      }}
+                      icon="download"
+                      size={"small"}
+                    >
+                      <a href={image} style={{ color: "black" }} download>
+                        Download
+                      </a>
+                    </Button>
                   </span>
                   <span style={{ float: "right", marginRight: "1rem" }}>
                     <img
