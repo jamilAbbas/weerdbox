@@ -182,7 +182,7 @@ class ImageItem extends React.Component {
               </p>
               <p>
                 <span style={{ fontWeight: "600", color: "black" }}>
-                  Wesite
+                  Website
                 </span>
                 : {website}
               </p>
