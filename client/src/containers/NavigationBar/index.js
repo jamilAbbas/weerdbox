@@ -63,7 +63,11 @@ class NavigationBar extends React.Component {
                 )}
 
                 <Button
-                  style={{ marginLeft: "1rem" }}
+                  style={{
+                    color: "black",
+                    background: "#CBF525",
+                    marginLeft: "1rem"
+                  }}
                   onClick={() => this.logoutUser()}
                 >
                   Logout

@@ -96,6 +96,7 @@ class ImageItem extends React.Component {
                 />
               </LinkedinShareButton>
             </div>
+
             <div style={{ margin: "5px" }}>
               <TwitterShareButton
                 quote={"Checkout my art on Weerdbox"}
@@ -114,6 +115,7 @@ class ImageItem extends React.Component {
             imageId={imageId}
             shares={shares}
             hearts={updataLikes}
+            image={image}
           />
         </Card>
         <Modal
@@ -149,7 +151,7 @@ class ImageItem extends React.Component {
                     Likes : {likes}
                   </span>
                   <span style={{ width: "100%" }}>
-                    <a href={image} downnload>
+                    <a href={image} download>
                       Download
                     </a>
                   </span>

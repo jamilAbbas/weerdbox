@@ -25,14 +25,14 @@
   text-shadow: 2px 2px #000000;
 }
 .subtitle {
-  color: #ebf0f3;
+  color: #000000;
   font-size: 2rem;
   font-weight: 900;
-  text-shadow: 2px 2px #000000;
+  /* text-shadow: 2px 2px #000000; */
 }
 .serviceDescription {
-  color: white;
-  text-shadow: 2px 2px #000000;
+  color: #000000;
+  /* text-shadow: 2px 2px #000000; */
   font-weight: lighter;
   font-size: large;
 }

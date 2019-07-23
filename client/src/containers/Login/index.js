@@ -65,7 +65,10 @@ class NormalLoginForm extends React.Component {
               </Form.Item>
               <Form.Item>
                 <Button
-                  type="primary"
+                  style={{
+                    color: "black",
+                    background: "#CBF525"
+                  }}
                   htmlType="submit"
                   className="login-form-button"
                 >

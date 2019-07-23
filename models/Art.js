@@ -16,16 +16,13 @@ const ArtSchema = new Schema({
     required: true
   },
   website: {
-    type: String,
-    required: true
+    type: String
   },
   phone: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   tags: {
     type: [String],
@@ -45,11 +42,11 @@ const ArtSchema = new Schema({
   },
   status: {
     type: String,
-    default: 'requested'
+    default: "requested"
   },
   isRejected: {
     type: Boolean,
-    default: false,
+    default: false
   },
   date: {
     type: Date,

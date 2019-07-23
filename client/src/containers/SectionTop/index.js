@@ -183,6 +183,11 @@ class SectionTop extends React.Component {
             <div className="submitArtButton">
               <Button
                 type="primary"
+                style={{
+                  color: "#FA08FF",
+                  background: "#CBF525",
+                  borderColor: "#CBF525"
+                }}
                 icon="upload"
                 size="large"
                 onClick={
@@ -243,7 +248,7 @@ class SectionTop extends React.Component {
               </Form.Item>
               <Form.Item label="Website">
                 {getFieldDecorator("website", {
-                  rules: [{ required: true, message: "Please input website!" }]
+                  rules: [{ message: "Please input website!" }]
                 })(
                   <AutoComplete
                     dataSource={websiteOptions}
@@ -258,7 +263,6 @@ class SectionTop extends React.Component {
                 {getFieldDecorator("phone", {
                   rules: [
                     {
-                      required: true,
                       message: "Please input your phone number!"
                     }
                   ]
@@ -268,7 +272,6 @@ class SectionTop extends React.Component {
                 {getFieldDecorator("description", {
                   rules: [
                     {
-                      required: true,
                       message: "Please enter the description of the image!"
                     }
                   ]
@@ -290,7 +293,7 @@ class SectionTop extends React.Component {
                   />
                 )}
               </Form.Item>
-              <Form.Item label="Email you used to signup or new one">
+              <Form.Item label="Email you used to signup">
                 {getFieldDecorator("email", {
                   rules: [
                     {

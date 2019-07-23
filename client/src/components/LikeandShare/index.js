@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, Card, message } from "antd";
+import { Icon, Card, message, Button } from "antd";
 import { connect } from "react-redux";
 import { browserHistory } from "react-router";
 import shareIcon from "../../data/images/share.png";
@@ -23,7 +23,7 @@ class LikeandShare extends React.Component {
   }
 
   render() {
-    const { likes, shares, imageId, newlikes, hearts } = this.props;
+    const { likes, shares, imageId, newlikes, hearts, image } = this.props;
     const lik = newlikes && newlikes.likes;
 
     return (
@@ -35,6 +35,13 @@ class LikeandShare extends React.Component {
             style={{ fontSize: "16px", color: "#08c" }}
           />{" "}
           Likes : {likes}
+        </span>
+        <span>
+          <Button type="primary" icon="download" size={"small"}>
+            <a href={image} style={{ color: "white" }} download>
+              Download
+            </a>
+          </Button>
         </span>
         <span style={{ float: "right" }}>
           <img
