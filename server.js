@@ -28,13 +28,13 @@ mongoose
   .catch(err => console.log(err));
 
 //User Routes
-app.use("/users", users);
+app.use("/api/users", users);
 //Profile Routes
-app.use("/profile", profile);
+app.use("/api/profile", profile);
 //Arts Routes
-app.use("/arts", arts);
+app.use("/api/arts", arts);
 //Likes Route
-app.use("/likes", likes);
+app.use("/api/likes", likes);
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
