@@ -18,18 +18,16 @@ class App extends React.Component {
       <Layout className="layout">
         <Content>
           <div
-          className="divMain"
+            className="divMain"
             style={{
               background: "#fff",
-              minHeight: 280,
-              
+              minHeight: 280
             }}
           >
             <SectionTop />
             <MainSection />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>Designed by j@mil</Footer>
       </Layout>
     );
   }

@@ -122,28 +122,40 @@ class SectionTop extends React.Component {
         <Row>
           <Col span={6} style={{ textAlign: "center" }}>
             <div className="leftDescription">
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{ marginBottom: "2rem", color:'black' }}>
                 <Icon
                   type="thunderbolt"
-                  style={{ fontSize: "20px", color: "#08c", margin: "0 1rem" }}
+                  style={{
+                    fontSize: "20px",
+                    color: "#FA08FF",
+                    margin: "0 1rem"
+                  }}
                 />{" "}
                 Join for free duh.{" "}
               </p>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{ marginBottom: "2rem", color:'black' }}>
                 {" "}
                 <Icon
                   type="thunderbolt"
-                  style={{ fontSize: "20px", color: "#08c", margin: "0 1rem" }}
+                  style={{
+                    fontSize: "20px",
+                    color: "#FA08FF",
+                    margin: "0 1rem"
+                  }}
                 />{" "}
                 Download and Use anything you <br />
-                <span style={{ marginLeft: "55px" }} /> want to make weerd
+                <span style={{ marginLeft: "55px", color:'black' }} /> want to make weerd
                 things weerder.
               </p>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{ marginBottom: "2rem", color:'black' }}>
                 {" "}
                 <Icon
                   type="thunderbolt"
-                  style={{ fontSize: "20px", color: "#08c", margin: "0 1rem" }}
+                  style={{
+                    fontSize: "20px",
+                    color: "#FA08FF",
+                    margin: "0 1rem"
+                  }}
                 />{" "}
                 Upload your Weerd sketches,
                 <br />
@@ -259,11 +271,11 @@ class SectionTop extends React.Component {
                   </AutoComplete>
                 )}
               </Form.Item>
-              <Form.Item label="Phone Number">
-                {getFieldDecorator("phone", {
+              <Form.Item label="Contact Email">
+                {getFieldDecorator("contactEmail", {
                   rules: [
                     {
-                      message: "Please input your phone number!"
+                      message: "Please input your contact email!"
                     }
                   ]
                 })(<Input style={{ width: "100%" }} />)}

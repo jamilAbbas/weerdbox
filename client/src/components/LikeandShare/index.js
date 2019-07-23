@@ -32,7 +32,7 @@ class LikeandShare extends React.Component {
           <Icon
             type="heart"
             theme={"filled"}
-            style={{ fontSize: "16px", color: "#08c" }}
+            style={{ fontSize: "16px", color: "#FA08FF" }}
           />{" "}
           Likes : {likes}
         </span>
