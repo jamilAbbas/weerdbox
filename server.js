@@ -32,15 +32,15 @@ mongoose
   .catch(err => console.log(err));
 
 //User Routes
-app.use("/api/users", users);
+app.use("/users", users);
 //Profile Routes
-app.use("/api/profile", profile);
+app.use("/profile", profile);
 //Arts Routes
-app.use("/api/arts", arts);
+app.use("/arts", arts);
 //Likes Route
-app.use("/api/likes", likes);
+app.use("/likes", likes);
 //Password Routes
-app.use("/api/password", password);
+app.use("/password", password);
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
