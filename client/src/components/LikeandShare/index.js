@@ -13,12 +13,20 @@ class LikeandShare extends React.Component {
     value: "",
     copied: false
   };
-  showCreditModal = filePath => {
-    var link=document.createElement('a');
-    link.href = filePath;
-    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-    link.click();
+  showCreditModal = () => {
+    const options = {
+      url: "http://someurl.com/image.jpg",
+      dest: "/path/to/dest" // Save to /path/to/dest/image.jpg
+    };
 
+    download
+      .image(options)
+      .then(({ filename, image }) => {
+        console.log("File saved to", filename);
+      })
+      .catch(err => {
+        console.error(err);
+      });
     this.setState({
       creditModalVisible: true
     });
@@ -74,16 +82,16 @@ class LikeandShare extends React.Component {
               }}
               icon="download"
               size={"small"}
-              onClick={() => this.showCreditModal(image)}
+              onClick={this.showCreditModal}
             >
-              {/* <a
-                href={image}
+              <a
+                href={`${image} + '-/preview/-/inline/no/'`}
                 style={{ color: "black" }}
                 download
                 target="_blank"
-              > */}
-              Download
-              {/* </a> */}
+              >
+                Download
+              </a>
             </Button>
           </span>
         )}
