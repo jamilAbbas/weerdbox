@@ -8,7 +8,6 @@ export function imageLikeRequest(imageId, userId) {
 }
 
 export function imageLikeSuccess(data) {
-  console.log('succesLikeAction', data)
   return {
     type: types.IMAGE_LIKE_SUCCESS,
     payload: data

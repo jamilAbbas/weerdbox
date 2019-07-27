@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { getMyArts } from "./actions";
 class Dashboard extends React.Component {
   componentDidMount() {
-    console.log("compnnt", this.props);
     const { getMyArts, auth } = this.props;
     const { id, email } = auth.user;
     getMyArts(id, email);
@@ -32,6 +31,7 @@ class Dashboard extends React.Component {
                   description={ar.description}
                   website={ar.website}
                   contact={ar.phone}
+                  page="dashboard"
                 />
               );
             })}

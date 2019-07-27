@@ -16,7 +16,7 @@ import {
   message
 } from "antd";
 import "./styles.css";
-import weerdBoxImg from "../../data/images/weerdlogo_white.png";
+import weerdBoxImg from "../../data/images/logo.png";
 import Uploader from "../../components/Uploader";
 import { submitArtRequest } from "./actions";
 import { searchArtsRequest } from "../app/actions";
@@ -119,10 +119,38 @@ class SectionTop extends React.Component {
     };
     return (
       <div className="wrapper">
+        <div className="submitArtButton">
+          <Button
+            // type="primary"
+            style={{
+              color: "#FA08FF",
+              background: "#CBF525",
+              borderColor: "#CBF525",
+              zIndex: "1"
+            }}
+            icon="upload"
+            size="large"
+            onClick={
+              isAuthenticated
+                ? this.showModal
+                : () => message.warning("Please sign in to submit your art!")
+            }
+          >
+            Submit Art
+          </Button>
+        </div>
         <Row>
-          <Col span={6} style={{ textAlign: "center" }}>
+          <Col
+            // span={6}
+            style={{ textAlign: "center" }}
+            xs={24}
+            sm={24}
+            md={6}
+            lg={6}
+            xl={6}
+          >
             <div className="leftDescription">
-              <p style={{ marginBottom: "2rem", color:'black' }}>
+              <p style={{ marginBottom: "2rem", color: "black" }}>
                 <Icon
                   type="thunderbolt"
                   style={{
@@ -133,7 +161,7 @@ class SectionTop extends React.Component {
                 />{" "}
                 Join for free duh.{" "}
               </p>
-              <p style={{ marginBottom: "2rem", color:'black' }}>
+              <p style={{ marginBottom: "2rem", color: "black" }}>
                 {" "}
                 <Icon
                   type="thunderbolt"
@@ -144,10 +172,10 @@ class SectionTop extends React.Component {
                   }}
                 />{" "}
                 Download and Use anything you <br />
-                <span style={{ marginLeft: "55px", color:'black' }} /> want to make weerd
-                things weerder.
+                <span style={{ marginLeft: "55px", color: "black" }} /> want to
+                make weerd things weerder.
               </p>
-              <p style={{ marginBottom: "2rem", color:'black' }}>
+              <p style={{ marginBottom: "2rem", color: "black" }}>
                 {" "}
                 <Icon
                   type="thunderbolt"
@@ -163,7 +191,15 @@ class SectionTop extends React.Component {
               </p>
             </div>
           </Col>
-          <Col span={12} style={{ textAlign: "center", marginTop: "3rem" }}>
+          <Col
+            span={12}
+            xs={24}
+            sm={24}
+            md={12}
+            lg={12}
+            xl={12}
+            style={{ textAlign: "center", marginTop: "3rem" }}
+          >
             <div>
               <img src={weerdBoxImg} className="weerdboxbannerimage" />
             </div>
@@ -191,28 +227,16 @@ class SectionTop extends React.Component {
               />
             </div>
           </Col>
-          <Col span={6} style={{ textAlign: "right" }}>
-            <div className="submitArtButton">
-              <Button
-                type="primary"
-                style={{
-                  color: "#FA08FF",
-                  background: "#CBF525",
-                  borderColor: "#CBF525"
-                }}
-                icon="upload"
-                size="large"
-                onClick={
-                  isAuthenticated
-                    ? this.showModal
-                    : () =>
-                        message.warning("Please sign in to submit your art!")
-                }
-              >
-                Submit Art
-              </Button>
-            </div>
-          </Col>
+          <Col
+            span={6}
+            span={12}
+            xs={24}
+            sm={24}
+            md={6}
+            lg={6}
+            xl={6}
+            style={{ textAlign: "right" }}
+          />
         </Row>
         <Modal
           title="Submit Art"
@@ -301,7 +325,7 @@ class SectionTop extends React.Component {
                   <Input
                     // rows={1}
                     style={{ width: "100%" }}
-                    placeholder="Enter comma seperated values e.g car,bike,bus"
+                    placeholder="Enter comma seperated values without space between the tags e.g car,bike,bus"
                   />
                 )}
               </Form.Item>

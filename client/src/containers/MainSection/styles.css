@@ -1,4 +1,11 @@
-.imagesContainer{
+.imagesContainer {
   display: inline-block;
   margin-left: 5rem;
+}
+
+@media (max-width: 540px) {
+  .imagesContainer {
+    display: block;
+    margin-left: 0 !important;
+  }
 }

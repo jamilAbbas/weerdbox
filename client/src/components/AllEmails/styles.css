@@ -1,0 +1,5 @@
+@media (max-width: 745px) {
+  .ant-layout-content {
+    overflow-x: auto !important;
+  }
+}

@@ -4,7 +4,6 @@ import { Table, Divider, Tag, Spin, Button } from "antd";
 class ApprovedUploads extends React.Component {
   render() {
     const { allArts, onDisapproveArt } = this.props;
-    console.log("onapprove RequestedUploads ", this.props);
     const approvedArts =
       allArts && allArts.filter(art => art.status === "approved");
     const columns = [

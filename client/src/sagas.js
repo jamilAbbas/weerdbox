@@ -10,12 +10,15 @@ import { getAuthToken } from "./utils/getAuthToken";
 import { setCurrentUser, loginFailed } from "./containers/Login/actions";
 import { signUpSuccess } from "./containers/Register/actions";
 import { getArtsSuccess } from "./containers/app/actions";
-import { getMyArtsSuccess } from "./containers/Dashboard/actions";
+import { getMyArtsSuccess, getMyArts } from "./containers/Dashboard/actions";
 import jwt_decode from "jwt-decode";
 import { IMAGE_LIKE_REQUEST } from "./components/LikeandShare/constants";
 import { imageLikeSuccess } from "./components/LikeandShare/actions";
 import { getAllArts, searchArtsSuccess } from "./containers/app/actions";
 import { SEARCH_ARTS_REQUEST } from "./containers/app/constants";
+import { RESET_PASSWORD_REQUEST } from "./containers/ForgotPassword/action";
+import { RESET_PASSWORD } from "./containers/ResetPasswordForm/constants";
+import { EDIT_ART_REQUEST } from "./containers/app/constants";
 import {
   ON_APPROVE_ART,
   ON_DISAPPROVE_ART,
@@ -300,6 +303,96 @@ function* deleteArtWatcher(action) {
   }
 }
 
+function* resetPasswordRequestWatcher(action) {
+  console.log(action.payload);
+  const data = {
+    email: action.payload
+  };
+  try {
+    const response = yield fetch("/password/resetpasswordrequest", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      message.warn(" Could not send email, try again");
+    } else {
+      message.success(
+        "Password reset link sent your email, please check your emial"
+      );
+    }
+  } catch (error) {
+    console.log("Email error");
+  }
+}
+
+function* resetPasswordWatcher(action) {
+  console.log("---payload---", action);
+  const data = {
+    existingEmail: action.payload.email,
+    newPassword: action.payload.newPassword,
+    token: action.payload.token
+  };
+  try {
+    const response = yield fetch("/password/updatepassword", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(data)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      message.warn(" Could not change password, try again");
+    } else {
+      message.success("Password successfully changed, please login");
+    }
+  } catch (error) {
+    console.log("Email error");
+  }
+}
+
+function* editArtRequestWatcher(action) {
+  console.log("edit art request saga", action.payload);
+  try {
+    const response = yield fetch("/arts/update", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        // Authorization: token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrer: "no-referrer",
+      body: JSON.stringify(action.payload)
+    }).then(res => res.json());
+    if (response.length < 1) {
+      message.warn(" Update failed, try again");
+    } else {
+      yield put(getAllArts());
+      message.success("Successfully updated");
+      yield put(getMyArts(12, action.payload.email));
+    }
+  } catch (error) {
+    console.log("Email error");
+  }
+}
+
 function* submitArtWatcher(values) {
   yield takeLatest(SUBMIT_ART_REQUEST, fetchArts);
   yield takeLatest(SIGNUP_REQUEST, signupRequestHandler);
@@ -311,6 +404,9 @@ function* submitArtWatcher(values) {
   yield takeLatest(ON_APPROVE_ART, approveRequestWatcher);
   yield takeLatest(ON_DISAPPROVE_ART, disApproveRequestWatcher);
   yield takeLatest(ON_DELETE_ART, deleteArtWatcher);
+  yield takeLatest(RESET_PASSWORD_REQUEST, resetPasswordRequestWatcher);
+  yield takeLatest(RESET_PASSWORD, resetPasswordWatcher);
+  yield takeLatest(EDIT_ART_REQUEST, editArtRequestWatcher);
 }
 
 export default function* rootSaga() {

@@ -28,3 +28,9 @@
   display: flex;
   justify-content: center;
 }
+.uploadImageForm {
+  text-align: center;
+}
+.uploadForm {
+  margin: 2rem;
+}

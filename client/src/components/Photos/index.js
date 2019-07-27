@@ -4,7 +4,6 @@ import "./styles.css";
 class Photos extends React.Component {
   render() {
     const { allArts } = this.props;
-    console.log(allArts);
     return (
       <div>
         <h1>All Photos</h1>

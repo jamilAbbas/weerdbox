@@ -54,17 +54,6 @@ class AllEmails extends React.Component {
           </span>
         )
       }
-      // {
-      //   title: "Action",
-      //   key: "action",
-      //   render: (text, record) => (
-      //     <span>
-      //       {/* <a href="javascript:;">Invite {record.name}</a>
-      //       <Divider type="vertical" /> */}
-      //       <a href="javascript:;">Delete</a>
-      //     </span>
-      //   )
-      // }
     ];
 
     return (

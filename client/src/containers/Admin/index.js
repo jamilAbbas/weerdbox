@@ -24,7 +24,6 @@ class Admin extends React.Component {
   };
 
   onCollapse = collapsed => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
   componentDidMount() {
@@ -32,7 +31,6 @@ class Admin extends React.Component {
     onGetAllArts();
   }
   handleSelection(values) {
-    console.log("----handleSelection,", values);
     if (values === "showAllEmails") {
       this.setState({
         showAllEmails: true,

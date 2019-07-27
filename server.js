@@ -5,8 +5,12 @@ const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const arts = require("./routes/api/arts");
 const likes = require("./routes/api/likes");
+const password = require("./routes/api/password");
 const passport = require("passport");
 const path = require("path");
+const nodeMailer = require("nodemailer");
+const WEERDBOX = "jamil.abbas813@gmail.com";
+const User = require("./models/User");
 
 const app = express();
 const db = require("./config/keys").mongoURI;
@@ -35,6 +39,8 @@ app.use("/api/profile", profile);
 app.use("/api/arts", arts);
 //Likes Route
 app.use("/api/likes", likes);
+//Password Routes
+app.use("/api/password", password);
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder

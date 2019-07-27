@@ -20,6 +20,8 @@ import Rules from "./containers/Rules";
 import Thanks from "./components/Thanks";
 import Dashboard from "./containers/Dashboard";
 import { setCurrentUser } from "./containers/Login/actions";
+import ForgotPassword from "./containers/ForgotPassword";
+import ResetPasswordForm from "./containers/ResetPasswordForm";
 import Admin from "./containers/Admin";
 const sagaMiddleware = createSagaMiddleware();
 
@@ -50,6 +52,8 @@ ReactDOM.render(
       <Route path="/about" component={About} />
       <Route path="/rules" component={Rules} />
       <Route path="/thanks" component={Thanks} />
+      <Route path="/forgotpassword" component={ForgotPassword} />
+      <Route path="/reset/:token" component={ResetPasswordForm} />
       <Switch>
         <PrivateRoute exact path="/admin" component={Admin} />
       </Switch>

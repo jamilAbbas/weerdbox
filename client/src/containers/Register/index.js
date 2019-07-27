@@ -10,18 +10,10 @@ class RegistrationForm extends React.Component {
     isReg: false
   };
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.register && nextProps.register.isRegisterd) {
-  //     message.success("Registered Successfully, Please login to continue");
-  //     console.log(nextProps);
-  //     window.location.replace("/login");
-  //   }
-  // }
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
         this.props.onSignUpRequest(values);
       }
     });
@@ -86,8 +78,12 @@ class RegistrationForm extends React.Component {
       <div className="regDiv" style={{ paddingTop: "5rem" }}>
         <Row>
           <Col span={13} offset={4} style={{ textAlign: "center" }}>
-            <h1 style={{ marginTop: "1rem", marginLeft: "7rem" }}>Register</h1>
+          
+
             <div>
+            <div style={{ width: "100%", textAlign: "centre" }}>
+              <h1>Register</h1>
+            </div>
               <Form
                 {...formItemLayout}
                 onSubmit={this.handleSubmit}

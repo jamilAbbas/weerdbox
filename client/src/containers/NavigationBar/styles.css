@@ -3,3 +3,19 @@
   width: 100%;
   z-index: 11;
 }
+@media (max-width: 546px) {
+  .logo {
+    width: 64px;
+    height: 21px;
+    margin-left: -43px;
+  }
+  .ant-menu {
+    font-size: 12px;
+  }
+  .ant-layout-header {
+    height: 64px;
+    padding: 0 50px;
+    line-height: 64px;
+    /* background: #001529; */
+  }
+}

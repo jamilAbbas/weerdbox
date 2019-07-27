@@ -24,7 +24,6 @@ router.post("/like", (req, res) => {
           .status(400)
           .json({ imageLiked: "You have already Liked this image" });
       } else {
-        console.log("new Iamge to be liked");
 
         let newLike = new Like({
           imageId: req.body.imageId,
@@ -33,7 +32,6 @@ router.post("/like", (req, res) => {
         newLike.save();
         const filter = { _id: req.body.imageId };
         Art.findOneAndUpdate(filter, { $inc: { likes: 1 } }).then(ar => {
-          console.log("------------ar--", ar);
           return res.json({ likedData: ar.likes });
         });
       }

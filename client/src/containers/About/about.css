@@ -4,6 +4,7 @@
   padding: 2rem;
   float: none;
   border-radius: 10px;
+  display: inline-block;
 }
 .colAbout p {
   color: black;
@@ -20,12 +21,12 @@
 }
 .containerDiv {
   /* background-image: url("../../data/images/keyboard.jpg"); */
-  background: #001529;
+  background: white;
   object-fit: cover;
   height: 100vh;
 }
 .divLogo {
-  background: #001529;
+  background: black;
   opacity: 0.9;
   border-radius: 10px;
 }

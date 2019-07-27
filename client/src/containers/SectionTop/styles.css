@@ -7,7 +7,7 @@
 .wrapper {
   height: 95vh;
   width: 100%;
-  background: #001529;
+  background: white;
   /* background-image: url(/static/media/home.6eede587.jpg); */
   background-size: cover;
 }
@@ -37,8 +37,10 @@
   font-size: large;
 }
 .submitArtButton {
-  margin-top: 6rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
   margin-right: 2rem;
+  float: right;
 }
 .searchbar {
   margin-top: 2rem;

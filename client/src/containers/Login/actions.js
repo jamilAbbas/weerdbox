@@ -8,11 +8,9 @@ export function loginRequest(data) {
 }
 
 export function loginFailed(data) {
-  console.log(" login failed");
-  console.log(data);
   return {
     type: types.LOGIN_REQUEST,
-    payload:data
+    payload: data
   };
 }
 

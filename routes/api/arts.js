@@ -142,4 +142,35 @@ router.post("/delete", (req, res) => {
   });
 });
 
+// @route Post/api/arts/update
+// @desc delete Art
+// @access private
+
+router.post("/update", (req, res) => {
+  let newtags = req.body.tags;
+  let tags;
+  if (typeof (req.body.tags !== "undefined")) {
+    tags = newtags.toString().split(",");
+  }
+  Art.updateOne(
+    { _id: req.body.imageId },
+    {
+      name: req.body.name !== "undefined" ? req.body.name : "",
+      website: req.body.website !== "undefined" ? req.body.website : "",
+      phone: req.body.contactEmail !== "undefined" ? req.body.contactEmail : "",
+      description:
+        req.body.description !== "undefined" ? req.body.description : "",
+      tags: newtags,
+      art: req.body.art !== "undefined" ? req.body.art : "",
+      email: req.body.email !== "undefined" ? req.body.email : ""
+    }
+  ).then(art => {
+    if (!art) {
+      res.json({ updateFailed: "Could not update" });
+    } else {
+      res.json({ updateArtSuccess: "Successfully updated the art" });
+    }
+  });
+});
+
 module.exports = router;

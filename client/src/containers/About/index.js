@@ -11,11 +11,17 @@ class about extends React.Component {
           <Col
             className="colAbout"
             span={12}
-            offset={6}
+            xs={24}
+            sm={24}
+            md={12}
+            lg={12}
+            xl={12}
             style={{ textAlign: "center" }}
           >
-          <div className="divLogo"><img src={Logoo} /></div>
-            
+            <div className="divLogo">
+              <img src={Logoo} />
+            </div>
+
             <h2>MAKE WEERD THINGS</h2>
             <p>
               Collect odd imagery, art, illustrations and other things that
