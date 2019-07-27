@@ -62,7 +62,7 @@ class LikeandShare extends React.Component {
         </span>
         {page === "homepage" && (
           <span>
-            <a href={image} style={{ color: "black" }}>
+            <a href={image} style={{ color: "black" }} download>
               <Button
                 style={{
                   color: "black",

@@ -29,6 +29,7 @@ class SectionTop extends React.Component {
   state = {
     visible: false,
     autoCompleteResult: [],
+    imagename: "",
     art:
       "http://www.independentmediators.co.uk/wp-content/uploads/2016/02/placeholder-image.jpg"
   };
@@ -56,13 +57,15 @@ class SectionTop extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
-        values.art = this.state.art;
+        let imgUrlname = this.state.art + this.state.imagename;
+        console.log(imgUrlname);
+        values.art = imgUrlname;
         this.props.onsubmitArtRequest(values);
         this.setState({
           visible: false
         });
 
-        window.location.replace("/thanks");
+        // window.location.replace("/thanks");
         message.success("You have successfully uploaded your art!");
       }
     });
@@ -258,10 +261,14 @@ class SectionTop extends React.Component {
                     file.progress(info =>
                       console.log("File progress: ", info.progress)
                     );
-                    file.done(info => console.log("File uploaded: ", info));
+                    file.done(info =>
+                      this.setState({ art: info.cdnUrl, imagename: info.name })
+                    );
                   }
                 }}
-                onUploadComplete={info => this.setState({ art: info.cdnUrl })}
+                onUploadComplete={info => {
+                  this.setState({ art: info.cdnUrl + info.name });
+                }}
               />
             </div>
             <img
