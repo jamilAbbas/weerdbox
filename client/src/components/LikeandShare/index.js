@@ -62,19 +62,19 @@ class LikeandShare extends React.Component {
         </span>
         {page === "homepage" && (
           <span>
-            <Button
-              style={{
-                color: "black",
-                background: "#CBF525"
-              }}
-              icon="download"
-              size={"small"}
-              onClick={this.showCreditModal}
-            >
-              <a href={image} style={{ color: "black" }} download>
+            <a href={image} style={{ color: "black" }} download>
+              <Button
+                style={{
+                  color: "black",
+                  background: "#CBF525"
+                }}
+                icon="download"
+                size={"small"}
+                onClick={this.showCreditModal}
+              >
                 Download
-              </a>
-            </Button>
+              </Button>
+            </a>
           </span>
         )}
 
