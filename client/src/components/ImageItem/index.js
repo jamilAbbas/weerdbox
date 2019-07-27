@@ -85,9 +85,7 @@ class ImageItem extends React.Component {
   };
 
   //Edit Name func
-  onChangeName(e) {
-
-  }
+  onChangeName(e) {}
 
   handleSubmit = e => {
     e.preventDefault();
@@ -232,7 +230,7 @@ class ImageItem extends React.Component {
                   <span style={{ float: "left" }}>
                     <Icon
                       // onClick={() => this.handleLike(imageId)}
-                      style={{ fontSize: "20px", color: "#08c" }}
+                      style={{ fontSize: "20px", color: "#FA08FF" }}
                       type="heart"
                       theme="filled"
                     />{" "}
