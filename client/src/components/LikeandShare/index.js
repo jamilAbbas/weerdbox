@@ -5,7 +5,7 @@ import { browserHistory } from "react-router";
 import shareIcon from "../../data/images/share.png";
 import { imageLikeRequest } from "./actions";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
+import download from "image-downloader";
 class LikeandShare extends React.Component {
   state = {
     creditModalVisible: false,
@@ -13,7 +13,12 @@ class LikeandShare extends React.Component {
     value: "",
     copied: false
   };
-  showCreditModal = () => {
+  showCreditModal = filePath => {
+    var link=document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+    link.click();
+
     this.setState({
       creditModalVisible: true
     });
@@ -69,16 +74,16 @@ class LikeandShare extends React.Component {
               }}
               icon="download"
               size={"small"}
-              onClick={this.showCreditModal}
+              onClick={() => this.showCreditModal(image)}
             >
-              <a
+              {/* <a
                 href={image}
                 style={{ color: "black" }}
                 download
                 target="_blank"
-              >
-                Download
-              </a>
+              > */}
+              Download
+              {/* </a> */}
             </Button>
           </span>
         )}
