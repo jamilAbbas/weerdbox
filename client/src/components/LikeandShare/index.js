@@ -6,6 +6,7 @@ import shareIcon from "../../data/images/share.png";
 import { imageLikeRequest } from "./actions";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import download from "image-downloader";
+import axios from "axios";
 class LikeandShare extends React.Component {
   state = {
     creditModalVisible: false,
@@ -13,23 +14,42 @@ class LikeandShare extends React.Component {
     value: "",
     copied: false
   };
-  showCreditModal = () => {
-    const options = {
-      url: "http://someurl.com/image.jpg",
-      dest: "/path/to/dest" // Save to /path/to/dest/image.jpg
-    };
-
-    download
-      .image(options)
-      .then(({ filename, image }) => {
-        console.log("File saved to", filename);
+  showCreditModal = image => {
+    axios({
+      url: image, //your url
+      method: "GET",
+      responseType: "blob" // important
+    })
+      .then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "test.jpg"); //or any other extension
+        document.body.appendChild(link);
+        link.click();
       })
-      .catch(err => {
-        console.error(err);
-      });
-    this.setState({
-      creditModalVisible: true
-    });
+      .then(r =>
+        this.setState({
+          creditModalVisible: true
+        })
+      );
+
+    // const options = {
+    //   url: "http://someurl.com/image.jpg",
+    //   dest: "/path/to/dest" // Save to /path/to/dest/image.jpg
+    // };
+
+    // download
+    //   .image(options)
+    //   .then(({ filename, image }) => {
+    //     console.log("File saved to", filename);
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   });
+    // this.setState({
+    //   creditModalVisible: true
+    // });
   };
   handleLike(imageId) {
     const { isAuthenticated, user } = this.props.auth;
@@ -82,16 +102,18 @@ class LikeandShare extends React.Component {
               }}
               icon="download"
               size={"small"}
-              onClick={this.showCreditModal}
+              onClick={() => this.showCreditModal(image)}
             >
-              <a
-                href={`${image} + '-/preview/-/inline/no/'`}
+              Download
+              {/* <a
+                href={image}
                 style={{ color: "black" }}
-                download
-                target="_blank"
+                // download
+                // target="_blank"
+                
               >
                 Download
-              </a>
+              </a> */}
             </Button>
           </span>
         )}

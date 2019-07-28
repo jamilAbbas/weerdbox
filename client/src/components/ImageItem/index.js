@@ -282,7 +282,7 @@ class ImageItem extends React.Component {
               </p>
               <p>
                 <span style={{ fontWeight: "600", color: "black" }}>
-                  Contact
+                  Contact Email
                 </span>
                 : {contact}
               </p>
