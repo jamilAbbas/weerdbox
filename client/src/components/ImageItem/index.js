@@ -45,7 +45,8 @@ class ImageItem extends React.Component {
     autoCompleteResult: [],
     imageId: this.props.imageId,
     name: this.props.name,
-    art: this.props.image
+    art: this.props.image,
+    imageName: this.props.imageName
   };
   showModal = () => {
     this.setState({
@@ -120,10 +121,13 @@ class ImageItem extends React.Component {
       description,
       contact,
       page,
-      artistName
+      artistName,
+      uCimageName
     } = this.props;
     const { visible, loading } = this.state;
     const updataLikes = tlikes && tlikes.likes;
+
+    console.log("----upload car img ImageItem", uCimageName);
     return (
       // <Col span={7}>
       <div className="imageCard">
@@ -201,6 +205,7 @@ class ImageItem extends React.Component {
             hearts={updataLikes}
             image={image}
             artistName={name}
+            imageName={uCimageName}
             page="homepage"
           />
         </Card>
@@ -235,21 +240,6 @@ class ImageItem extends React.Component {
                       theme="filled"
                     />{" "}
                     Likes : {likes}
-                  </span>
-                  <span>
-                    {/* <Button
-                      style={{
-                        color: "black",
-                        background: "#CBF525"
-                      }}
-                      icon="download"
-                      size={"small"}
-                      onClick={this.showCreditModal}
-                    >
-                      <a href={image} style={{ color: "black" }} download>
-                        Download
-                      </a>
-                    </Button> */}
                   </span>
 
                   <span style={{ float: "right", marginRight: "1rem" }}>

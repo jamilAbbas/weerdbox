@@ -24,7 +24,7 @@ class LikeandShare extends React.Component {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", "test.jpg"); //or any other extension
+        link.setAttribute("download", this.props.imageName); //or any other extension
         document.body.appendChild(link);
         link.click();
       })
@@ -33,23 +33,6 @@ class LikeandShare extends React.Component {
           creditModalVisible: true
         })
       );
-
-    // const options = {
-    //   url: "http://someurl.com/image.jpg",
-    //   dest: "/path/to/dest" // Save to /path/to/dest/image.jpg
-    // };
-
-    // download
-    //   .image(options)
-    //   .then(({ filename, image }) => {
-    //     console.log("File saved to", filename);
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //   });
-    // this.setState({
-    //   creditModalVisible: true
-    // });
   };
   handleLike(imageId) {
     const { isAuthenticated, user } = this.props.auth;
@@ -79,10 +62,11 @@ class LikeandShare extends React.Component {
       hearts,
       image,
       artistName,
-      page
+      page,
+      imageName
     } = this.props;
     const lik = newlikes && newlikes.likes;
-
+    console.log("---iamge name--like and share cop-", imageName);
     return (
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <span onClick={() => this.handleLike(imageId)}>
@@ -102,7 +86,7 @@ class LikeandShare extends React.Component {
               }}
               icon="download"
               size={"small"}
-              onClick={() => this.showCreditModal(image)}
+              onClick={() => this.showCreditModal(image, imageName)}
             >
               Download
               {/* <a

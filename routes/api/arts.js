@@ -33,7 +33,8 @@ router.post(
       description: req.body.description,
       tags: tags,
       art: req.body.art,
-      email: req.body.email
+      email: req.body.email,
+      imagename: req.body.imageName
     });
     newArt.save().then(art => {
       return res.json({ newart: art });

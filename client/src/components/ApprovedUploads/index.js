@@ -27,7 +27,7 @@ class ApprovedUploads extends React.Component {
         key: "likes"
       },
       {
-        title: "Phone",
+        title: "Contact Email",
         dataIndex: "phone",
         key: "phone"
       },

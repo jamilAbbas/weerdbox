@@ -57,15 +57,16 @@ class SectionTop extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
-        let imgUrlname = this.state.art + this.state.imagename;
+        let imgUrlname = this.state.art;
         console.log(imgUrlname);
         values.art = imgUrlname;
+        values.imageName = this.state.imagename;
         this.props.onsubmitArtRequest(values);
         this.setState({
           visible: false
         });
 
-        // window.location.replace("/thanks");
+        window.location.replace("/thanks");
         message.success("You have successfully uploaded your art!");
       }
     });

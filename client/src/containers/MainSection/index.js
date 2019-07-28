@@ -9,6 +9,7 @@ const { Meta } = Card;
 class MainSection extends React.Component {
   render() {
     const { arts, allarts } = this.props;
+    console.log("=====mani section====", allarts);
     const approvedArts =
       allarts && allarts.filter(arts => arts.status === "approved");
     return (
@@ -26,6 +27,7 @@ class MainSection extends React.Component {
               description={ar.description}
               website={ar.website}
               contact={ar.phone}
+              uCimageName={ar.imagename}
             />
           ))}
       </div>

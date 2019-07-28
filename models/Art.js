@@ -32,6 +32,9 @@ const ArtSchema = new Schema({
     type: String,
     required: true
   },
+  imagename: {
+    type: String
+  },
   likes: {
     type: Number,
     default: 0

@@ -34,7 +34,8 @@ function* fetchArts(action) {
     phone: action.data.phone,
     description: action.data.description,
     tags: action.data.tags,
-    art: action.data.art
+    art: action.data.art,
+    imageName: action.data.imageName
   };
   try {
     const response = yield fetch("arts", {
